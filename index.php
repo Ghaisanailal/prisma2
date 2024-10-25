@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 require_once "config/database.php"; // Memanggil file koneksi dengan database
 ?>
 <!doctype html>
@@ -15,7 +17,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
 <body>
    <!--- untuk mengecek sesi di index -->
    <?php
-  session_start();
+  
 
   // jika tidak ada level yang ditemukan pada sesi login, maka akan diarahkan ke halaman login.php dengan tambahan pesan gagal.
   // fitur ini digunakan agar yang belum login tidak dapat masuk ke dalam aplikasi.
@@ -147,3 +149,6 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
 </body>
 
 </html>
+<?php
+ob_end_flush(); // Menghentikan output buffering
+?>
