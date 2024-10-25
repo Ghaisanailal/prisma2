@@ -21,8 +21,26 @@ if (empty($_GET["page"])) {
 } elseif ($_GET['page'] == 'proses-hapus') {
     include "user/proses-hapus.php";
 
+    // manage cuti
+
+} elseif ($_GET['page'] == 'cuti-tampil') {
+    include "manage_cuti/tampil.php";
+} elseif ($_GET['page'] == 'cuti-detail') {
+    include "manage_cuti/detail.php";
+} elseif ($_GET['page'] == 'cuti-print-detail') {
+    include "manage_cuti/print-detail.php";
+} elseif ($_GET['page'] == 'aktivasi-cuti') {
+    include "manage_cuti/aktivasi-cuti.php";
+} elseif ($_GET['page'] == 'aktivasi-sem') {
+    include "manage_cuti/aktivasi.php";
+} elseif ($_GET['page'] == 'cuti-hapus') {
+    include "manage_cuti/hapus.php";
+} elseif ($_GET['page'] == 'tampil-sk') {
+    include "manage_cuti/tampil-sk.php";
+}
+
     // Pegawai
-} elseif ($_GET['page'] == 'pegawai-tampil') {
+  elseif ($_GET['page'] == 'pegawai-tampil') {
     include "pegawai/tampil.php";
 } elseif ($_GET['page'] == 'pegawai-tambah') {
     include "pegawai/tambah.php";

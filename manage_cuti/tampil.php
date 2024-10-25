@@ -1,29 +1,32 @@
+<div class="panel-heading">
+        <h3 class="panel-title">Data Cuti</h3>
+        <?php
+      if ($_SESSION['level'] == "Admin") {
+        echo "<a class='btn btn-info' href='?page=tambah'>
+      <i class='glyphicon glyphicon-plus'></i> Tambah </a>";
+      } else if ($_SESSION['level'] == "Siswa") {
+        echo "Gak boleh masukin data";
+      }
+      ?>
+      </div>
 <?php
 if (isset($_POST['cari'])) {
-    $cari = $_POST['cari'];
+  $cari = $_POST['cari'];
 } else {
-    $cari = "";
+  $cari = "";
 }
 ?>
 
-<br>
 <div class="row">
-    <div class="col-md-12">
-        <div class="panel-body">
-            <div class="pull-right btn-tambah">
-                <form class="form-inline" method="POST" action="?page=seminar-tampil">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </div>
-                            <input type="text" class="form-control" name="cari" placeholder="Cari ..." autocomplete="off" value="<?php echo $cari; ?>">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="col-md-12">
+    <div class="page-header">
 
+
+
+<br>
+<form class="form-inline" method="POST" action="?page=user-tampil">
+<input type="text" name="cari" class="form-control" placeholder="cari ..." required="required" value="<?php echo $cari; ?>">
+    </form>
         <?php
         if (empty($_GET['alert'])) {
             echo "";
@@ -65,9 +68,7 @@ if (isset($_POST['cari'])) {
         }
         ?>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Data Seminar</h3>
+      
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -75,9 +76,10 @@ if (isset($_POST['cari'])) {
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>Nip</th>
                                 <th>Nama</th>
-                                <th>Instansi</th>
-                                <th>Judul</th>
+                                <th>Jabatan</th>
+                                <th>Bidang</th>
                                 <th>Status</th>
                                 <th class='center'>Aksi</th>
                             </tr>
@@ -89,9 +91,9 @@ if (isset($_POST['cari'])) {
                             $batas = 10;
 
                             if (isset($cari)) {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, users.nama, users.instansi FROM seminar JOIN users ON users.nis = seminar.nis WHERE instansi LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, users.nama, users.jabatan, users.bidang FROM seminar JOIN users ON users.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             } else {
-                                $jumlah_record = mysqli_query($db, "SSELECT seminar.*, users.nama, users.instansi FROM seminar JOIN users ON users.nis = seminar.nis") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SSELECT seminar.*, users.nama, users.jabatan, users.bidang FROM seminar JOIN users ON users.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
@@ -101,30 +103,31 @@ if (isset($_POST['cari'])) {
                             /*-------------------------------------------------------------------*/
                             $no = 1;
                             if (isset($cari)) {
-                                $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.instansi FROM seminar JOIN users ON users.nis = seminar.nis WHERE instansi LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nis LIMIT $mulai, $batas")
+                                $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.jabatan, users.bidang FROM seminar JOIN users ON users.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
                                     or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             } else {
-                                $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.instansi FROM seminar JOIN users ON users.nis = seminar.nis ORDER BY nis LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.jabatan,  users.bidang FROM seminar JOIN users ON users.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             }
 
                             while ($data = mysqli_fetch_assoc($query)) {
 
                                 echo "  <tr>
                       <td width='20'>$no</td>
-                      <td width='100'>$data[nama]</td>
-                      <td width='75'>$data[instansi]</td>
-                      <td width='150'>$data[judul]</td>
-                      <td width='50'>$data[statussem]</td>
+                      <td width='100'>$data[nip]</td>
+                      <td width='75'>$data[nama]</td>
+                      <td width='150'>$data[jabatan]</td>
+                      <td width='50'>$data[bidang]</td>
+                      <td width='50'>$data[status]</td>
                       <td width='100' class='center'>
                         <div class=''>
-                        <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=seminar-detail&id=$data[idseminar]'> <i class='glyphicon glyphicon-eye-open'></i></a>
-                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=seminar-print-detail&id=$data[idseminar]' target='_blank'> <i class='glyphicon glyphicon-print'></i></a>";;
+                        <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=seminar-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i></a>
+                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=seminar-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i></a>";;
                             ?>
                                 <?php
                                 if ($_SESSION['level'] == "Admin") {
-                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=seminar-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='glyphicon glyphicon-trash'></i></a>&nbsp";
+                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=seminar-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
 
-                                    echo " <a data-toggle='tooltip' data-placement='top' title='Aktivasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-seminar&id=$data[idseminar]'> <i class='glyphicon glyphicon-ok'></i></a>";
+                                    echo " <a data-toggle='tooltip' data-placement='top' title='Aktivasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-seminar&id=$data[idseminar]'> <i class='ti ti-square-rounded-check'></i></a>";
                                 } else if ($_SESSION['level'] == "User") {
                                 }
                                 ?>
