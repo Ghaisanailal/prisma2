@@ -1,10 +1,10 @@
 <div class="panel-heading">
         <h3 class="panel-title">Data Cuti</h3>
         <?php
-      if ($_SESSION['level'] == "Admin") {
+      if ($_SESSION['level'] == "Pegawai") {
         echo "<a class='btn btn-info' href='?page=tambah'>
       <i class='glyphicon glyphicon-plus'></i> Tambah </a>";
-      } else if ($_SESSION['level'] == "Siswa") {
+      } else if ($_SESSION['level'] == "Admin") {
         echo "Gak boleh masukin data";
       }
       ?>

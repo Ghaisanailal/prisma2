@@ -86,7 +86,7 @@ if (isset($_POST['cari'])) {
                         <tbody>
                             <?php
                             /* Pagination */
-                            $batas = 10;
+                            $batas = 5;
 
                             if (isset($cari)) {
                                 $jumlah_record = mysqli_query($db, "SELECT * FROM pegawai WHERE nip LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
@@ -160,14 +160,14 @@ if (isset($_POST['cari'])) {
                             if ($halaman_aktif <= '1') { ?>
                                 <li class="disabled">
                                     <a href="" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
                             <?php
                             } else { ?>
                                 <li>
                                     <a href="?page=pegawai-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
                             <?php
@@ -177,9 +177,9 @@ if (isset($_POST['cari'])) {
                             <!-- Link halaman 1 2 3 ... -->
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
-                                <li class="">
-                                    <a href="?page=pegawai-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
-                                </li>
+                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=pegawai-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
+                                    
+                                
                             <?php
                             }
                             ?>
@@ -189,14 +189,14 @@ if (isset($_POST['cari'])) {
                             if ($halaman_aktif >= $halaman) { ?>
                                 <li class="disabled">
                                     <a href="" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>
                             <?php
                             } else { ?>
                                 <li>
                                     <a href="?page=pegawai-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>
                             <?php

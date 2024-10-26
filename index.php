@@ -17,7 +17,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
 <body>
    <!--- untuk mengecek sesi di index -->
    <?php
-  
+   $ids = $_SESSION['id'];
 
   // jika tidak ada level yang ditemukan pada sesi login, maka akan diarahkan ke halaman login.php dengan tambahan pesan gagal.
   // fitur ini digunakan agar yang belum login tidak dapat masuk ke dalam aplikasi.
@@ -102,11 +102,11 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
+                      <a href="?page=users-edit&id=<?php echo $ids ?>" class="btn btn-outline-primary mx-3 mt-2 d-block">                      <i class="ti ti-user fs-6"></i>
+                      My Account</a>
                     </a>
                    
-                    <a href="login.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>

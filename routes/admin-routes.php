@@ -81,8 +81,8 @@ elseif ($_GET['page'] == 'kp-tampil') {
 }
 
 // Account
-elseif ($_GET['page'] == 'pegawai-tampil') {
-    include "pegawai/tampil.php";
+elseif ($_GET['page'] == 'users-edit') {
+    include "users/edit.php";
 }
    
     // Users

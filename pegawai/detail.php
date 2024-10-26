@@ -33,7 +33,7 @@
         </ul>
 
         <div class="form-group">
-            <a href="?page=pegawai-tampil" class="btn btn-default btn-reset">Kembali</a>
+            <a href="?page=pegawai-tampil" class="btn btn-primary m-1">Kembali</a>
         </div>
     </div>
     </form>
