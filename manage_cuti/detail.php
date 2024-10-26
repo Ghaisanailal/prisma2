@@ -4,22 +4,16 @@
         <?php
         if (isset($_GET['id'])) {
             $idseminar   = $_GET['id'];
-            $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.instansi FROM seminar JOIN users ON users.nis = seminar.nis WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
+            $query = mysqli_query($db, "SELECT seminar.*, users.nama, users.jabatan FROM seminar JOIN users ON users.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
                 $idseminar        = $data['idseminar'];
-                $nis              = $data['nis'];
-                $judul            = $data['judul'];
+                $nip              = $data['nip'];
                 $tautan           = $data['tautan'];
                 $file             = $data['file'];
-                $statussem        = $data['statussem'];
+                $status           = $data['status'];
                 $ket              = $data['ket'];
-                $pengujilap       = $data['pengujilap'];
-                $pengujiapl       = $data['pengujiapl'];
-                $nilaiprakerin    = $data['nilaiprakerin'];
-                $nilailaporan     = $data['nilailaporan'];
-                $nilaiaplikasi    = $data['nilaiaplikasi'];
                 $nama             = $data['nama'];
-                $instansi         = $data['instansi'];
+                
             }
         }
         ?>
@@ -27,27 +21,11 @@
         <ul class="list-group">
             <li class="list-group-item active"><b>DETAIL DATA SEMINAR</b></li>
             <li class="list-group-item"><b>Id Seminar : </b><?php echo $idseminar; ?></li>
-            <li class="list-group-item"><b>Nama Peserta : </b><?php echo $nama . " - " . $instansi; ?></li>
-            <li class="list-group-item"><b>Judul : </b><?php echo $judul; ?></li>
+            <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama . " - " . $jabatan; ?></li>
             <li class="list-group-item"><b>Tautan : </b><a href="https:<?php echo $tautan; ?>" target="_blank"><?php echo $tautan; ?></a></li>
             <li class="list-group-item"><b>File : </b><a href="seminar/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
-            <li class="list-group-item"><b>Status : <?php echo $statussem; ?></b> (<?php echo $ket; ?>)</li>
+            <li class="list-group-item"><b>Status : <?php echo $status; ?></b> (<?php echo $ket; ?>)</li>
 
-            <?php
-            $pengujilaporan = mysqli_query($db, "SELECT * from pegawai WHERE nis='$pengujilap'") or die('Query Error : ' . mysqli_error($db));
-            while ($pengujilaporans = mysqli_fetch_assoc($pengujilaporan)) {
-                $pengujilaporann = $pengujilaporans['nama'];
-            } ?>
-
-            <li class="list-group-item"><b>Penguji Laporan : </b><?php echo $pengujilaporann; ?></li>
-
-            <?php
-            $pengujiaplikasi = mysqli_query($db, "SELECT * from pegawai WHERE nis='$pengujiapl'") or die('Query Error : ' . mysqli_error($db));
-            while ($pengujiaplikasis = mysqli_fetch_assoc($pengujiaplikasi)) {
-                $pengujiaplikasin = $pengujiaplikasis['nama'];
-            } ?>
-            <li class="list-group-item"><b>Penguji Aplikasi : </b><?php echo $pengujiaplikasin; ?></li>
-            </li>
         </ul>
         <ul class="list-group">
             <li class="list-group-item active"><b>NILAI PRAKERIN & SEMINAR</b></li>

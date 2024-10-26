@@ -103,7 +103,7 @@ elseif ($_GET['page'] == 'users-edit') {
 } elseif ($_GET['page'] == 'seminar-tampil') {
     include "seminar/tampil.php";
 } elseif ($_GET['page'] == 'seminar-detail') {
-    include "seminar/detail.php";
+    include "manage_cuti/detail.php";
 } elseif ($_GET['page'] == 'seminar-print-detail') {
     include "seminar/print-detail.php";
 } elseif ($_GET['page'] == 'aktivasi-seminar') {
