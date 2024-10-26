@@ -80,6 +80,10 @@ elseif ($_GET['page'] == 'kp-tampil') {
     include "manage_kp/tampil-sk.php";
 }
 
+// Account
+elseif ($_GET['page'] == 'pegawai-tampil') {
+    include "pegawai/tampil.php";
+}
    
     // Users
   elseif ($_GET['page'] == 'users-tampil') {
