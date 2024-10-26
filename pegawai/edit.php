@@ -1,9 +1,9 @@
 <?php
 if (isset($_GET['id'])) {
-    $nis   = $_GET['id'];
-    $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nis='$nis'") or die('Query Error : ' . mysqli_error($db));
+    $nip   = $_GET['id'];
+    $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
     while ($data  = mysqli_fetch_assoc($query)) {
-        $nis      = $data['nis'];
+        $nip      = $data['nip'];
         $nama     = $data['nama'];
         $jabatan  = $data['jabatan'];
         $bidang   = $data['bidang'];
@@ -20,9 +20,9 @@ if (isset($_GET['id'])) {
         <form class="form-horizontal" method="POST" action="?page=pegawai-update" enctype="multipart/form-data">
 
             <div class="form-group">
-                <label class="col-sm-2 control-label">NIS</label>
+                <label class="col-sm-2 control-label">Nip</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" name="nis" value="<?php echo $nis; ?>" readonly>
+                    <input type="text" class="form-control" name="nip" value="<?php echo $nip; ?>" readonly>
                 </div>
             </div>
 
@@ -49,16 +49,17 @@ if (isset($_GET['id'])) {
                 <div class="col-sm-2">
                     <select class="form-control" name="bidang" placeholder="Pilih Bidang" required>
                         <option value="<?php echo $bidang; ?>"><?php echo $bidang; ?></option>
-                        <option value="Diskominfosanditik">Diskominfosanditik</option>
-                        <option value="BPKAD">BPKAD</option>
-                        <option value="Dinas Arsip">Dinas Arsip</option>
-                        <option value="Kementerian Agama">Kementerian Agama</option>
-                        <option value="Disparbudpora">Disparbudpora</option>
-                        <option value="Disdukcapil">Disdukcapil</option>
-                        <option value="Dinas Pendidikan">Dinas Pendidikan</option>
-                        <option value="Diskoperindag">Diskoperindag</option>
-                        <option value="Laporan">Laporan</option>
-                        <option value="Aplikasi">Aplikasi</option>
+                        <option value="Kepala Kantor">Kepala Kantor</option>
+                        <option value="KA SUBAB TU">KA SUBAB TU</option>
+                        <option value="KEUANGAN">KEUANGAN</option>
+                        <option value="UP">UP</option>
+                        <option value="PENMAD">PENMAD</option>
+                        <option value="PD_PONTREN">PD_PONTREN</option>
+                        <option value="PAIS">PAIS</option>
+                        <option value="PHU">PHU</option>
+                        <option value="BIMAS ISLAM">BIMAS ISLAM</option>
+                        <option value="ZAKAT & WAKAF">ZAKAT & WAKAF</option>
+                        
                     </select>
                 </div>
             </div>

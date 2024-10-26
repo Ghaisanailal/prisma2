@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
     <div class="col-md-12">
       <div class="page-header">
         <h4>
@@ -14,9 +14,8 @@
           $id        = $data['id'];
           $username  = $data['username'];
           $password  = $data['password'];
-          $nip       = $data['nip'];
           $level     = $data['level'];
-         
+          $nis       = $data['nis'];
         }
       }
       ?>
@@ -46,9 +45,9 @@
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nip</label>
+              <label class="col-sm-2 control-label">NIS</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="nip" required>
+                <input type="text" class="form-control" name="nis" required>
               </div>
             </div>
 

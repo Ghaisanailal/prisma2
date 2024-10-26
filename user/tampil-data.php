@@ -73,7 +73,7 @@ if (isset($_POST['cari'])) {
                 <th>Id</th>
                 <th>Username</th>
                 <th>Level</th>
-                <th>NIS</th>
+                <th>NIP</th>
                 <th class='center'>Aksi</th>
               </tr>
             </thead>
@@ -85,7 +85,7 @@ if (isset($_POST['cari'])) {
 
               if (isset($cari)) {
                 $jumlah_record = mysqli_query($db, "SELECT * FROM user
-                                                    WHERE nis LIKE '%$cari%' OR username LIKE '%$cari%'")
+                                                    WHERE nip LIKE '%$cari%' OR username LIKE '%$cari%'")
                   or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
               } else {
                 $jumlah_record = mysqli_query($db, "SELECT * FROM user")
@@ -100,7 +100,7 @@ if (isset($_POST['cari'])) {
               $no = 1;
               if (isset($cari)) {
                 $query = mysqli_query($db, "SELECT * FROM user
-                                            WHERE nis LIKE '%$cari%' OR username LIKE '%$cari%' 
+                                            WHERE nip LIKE '%$cari%' OR username LIKE '%$cari%' 
                                             ORDER BY id LIMIT $mulai, $batas")
                   or die('Ada kesalahan pada query user: ' . mysqli_error($db));
               } else {
@@ -118,14 +118,14 @@ if (isset($_POST['cari'])) {
                       <td width='50'>$data[id]</td>
                       <td width='150'>$data[username]</td>
                       <td width='150'>$data[level]</td>
-                      <td width='50'>$data[nis]</td>
+                      <td width='50'>$data[nip]</td>
                       <td width='100' class='center'>
                         <div class=''>
                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=detail&id=$data[id]'>
                             <i class='ti ti-eye'></i>
                           </a> 
                           
-                                                  <a data-toggle='tooltip' data-placement='top' title='Edit' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=user-edit&id=$data[nis]'> <i class='ti ti-edit'></i></a>
+                                                  <a data-toggle='tooltip' data-placement='top' title='Ubah' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=ubah&id=$data[nip]'> <i class='ti ti-edit'></i></a>
 
                                                   ";
                           

@@ -5,21 +5,25 @@
 if (empty($_GET["page"])) {
     include "dashboard/dashboard-admin.php"; // Tampilan default jika tidak ada permintaan halaman tertentu pada index., maka pada index akan ditampilkan halaman dashboard-admin.php yang ada pada folder dashboard.
 
-    // User
-} elseif ($_GET['page'] == 'user-tampil') {
-    include "user/tampil-data.php";
-} elseif ($_GET['page'] == 'tambah') {
-    include "user/form-tambah.php";
-} elseif ($_GET['page'] == 'proses-simpan') {
-    include "user/proses-simpan.php";
-} elseif ($_GET['page'] == 'ubah') {
-    include "user/form-ubah.php";
-} elseif ($_GET['page'] == 'proses-ubah') {
-    include "user/proses-ubah.php";
-} elseif ($_GET['page'] == 'detail') {
-    include "user/detail.php";
-} elseif ($_GET['page'] == 'proses-hapus') {
-    include "user/proses-hapus.php";
+    // Manage Data
+    }elseif ($_GET['page'] == 'pegawai-tampil') {
+        include "pegawai/tampil.php";
+    } elseif ($_GET['page'] == 'pegawai-tambah') {
+        include "pegawai/tambah.php";
+    } elseif ($_GET['page'] == 'pegawai-simpan') {
+        include "pegawai/simpan.php";
+    } elseif ($_GET['page'] == 'pegawai-detail') {
+        include "pegawai/detail.php";
+    } elseif ($_GET['page'] == 'pegawai-edit') {
+        include "pegawai/edit.php";
+    } elseif ($_GET['page'] == 'pegawai-update') {
+        include "pegawai/update.php";
+    } elseif ($_GET['page'] == 'pegawai-hapus') {
+        include "pegawai/hapus.php";
+    } elseif ($_GET['page'] == 'pegawai-print-detail') {
+        include "pegawai/print-detail.php";
+    } elseif ($_GET['page'] == 'pegawai-kirim') {
+        include "pegawai/kirim.php";
 
     // manage cuti
 
@@ -39,28 +43,46 @@ if (empty($_GET["page"])) {
     include "manage_cuti/tampil-sk.php";
 }
 
-    // Pegawai
-  elseif ($_GET['page'] == 'pegawai-tampil') {
-    include "pegawai/tampil.php";
-} elseif ($_GET['page'] == 'pegawai-tambah') {
-    include "pegawai/tambah.php";
-} elseif ($_GET['page'] == 'pegawai-simpan') {
-    include "pegawai/simpan.php";
-} elseif ($_GET['page'] == 'pegawai-detail') {
-    include "pegawai/detail.php";
-} elseif ($_GET['page'] == 'pegawai-edit') {
-    include "pegawai/edit.php";
-} elseif ($_GET['page'] == 'pegawai-update') {
-    include "pegawai/update.php";
-} elseif ($_GET['page'] == 'pegawai-hapus') {
-    include "pegawai/hapus.php";
-} elseif ($_GET['page'] == 'pegawai-print-detail') {
-    include "pegawai/print-detail.php";
-} elseif ($_GET['page'] == 'pegawai-kirim') {
-    include "pegawai/kirim.php";
+// manage pensiun
 
+ elseif ($_GET['page'] == 'pensiun-tampil') {
+    include "manage_pensiun/tampil.php";
+} elseif ($_GET['page'] == 'pensiun-detail') {
+    include "manage_pensiun/detail.php";
+} elseif ($_GET['page'] == 'pensiun-print-detail') {
+    include "manage_pensiun/print-detail.php";
+} elseif ($_GET['page'] == 'aktivasi-pensiun') {
+    include "manage_pensiun/aktivasi-pensiun.php";
+} elseif ($_GET['page'] == 'aktivasi-sem') {
+    include "manage_pensiun/aktivasi.php";
+} elseif ($_GET['page'] == 'pensiun-hapus') {
+    include "manage_pensiun/hapus.php";
+} elseif ($_GET['page'] == 'tampil-sk') {
+    include "manage_pensiun/tampil-sk.php";
+}
+
+
+// manage kenaikan pangkat
+
+elseif ($_GET['page'] == 'kp-tampil') {
+    include "manage_kp/tampil.php";
+} elseif ($_GET['page'] == 'kp-detail') {
+    include "manage_kp/detail.php";
+} elseif ($_GET['page'] == 'kp-print-detail') {
+    include "manage_kp/print-detail.php";
+} elseif ($_GET['page'] == 'aktivasi-kp') {
+    include "manage_kp/aktivasi-kp.php";
+} elseif ($_GET['page'] == 'aktivasi-sem') {
+    include "manage_kp/aktivasi.php";
+} elseif ($_GET['page'] == 'kp-hapus') {
+    include "manage_kp/hapus.php";
+} elseif ($_GET['page'] == 'tampil-sk') {
+    include "manage_kp/tampil-sk.php";
+}
+
+   
     // Users
-} elseif ($_GET['page'] == 'users-tampil') {
+  elseif ($_GET['page'] == 'users-tampil') {
     include "users/tampil.php";
 } elseif ($_GET['page'] == 'users-detail') {
     include "users/detail.php";
@@ -88,4 +110,21 @@ if (empty($_GET["page"])) {
     include "seminar/hapus.php";
 } elseif ($_GET['page'] == 'tampil-nilai') {
     include "seminar/tampil-nilai.php";
+}
+
+  // User
+  elseif ($_GET['page'] == 'user-tampil') {
+    include "user/tampil-data.php";
+} elseif ($_GET['page'] == 'tambah') {
+    include "user/form-tambah.php";
+} elseif ($_GET['page'] == 'proses-simpan') {
+    include "user/proses-simpan.php";
+} elseif ($_GET['page'] == 'ubah') {
+    include "user/form-ubah.php";
+} elseif ($_GET['page'] == 'proses-ubah') {
+    include "user/proses-ubah.php";
+} elseif ($_GET['page'] == 'detail') {
+    include "user/detail.php";
+} elseif ($_GET['page'] == 'proses-hapus') {
+    include "user/proses-hapus.php";
 }

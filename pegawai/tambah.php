@@ -12,9 +12,9 @@
                 <form class="form-horizontal" action="?page=pegawai-simpan" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">NIS</label>
+                        <label class="col-sm-2 control-label">Nip</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="nis" autocomplete="off" required>
+                            <input type="text" class="form-control" name="nip" autocomplete="off" required>
                         </div>
                     </div>
 

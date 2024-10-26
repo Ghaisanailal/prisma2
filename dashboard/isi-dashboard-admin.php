@@ -3,9 +3,9 @@ include 'config/database.php';
 
 $ids = $_SESSION['id'];
 $levels = $_SESSION['level'];
-$jumlah_record1 = mysqli_query($db, "SELECT user.id, pegawai.* FROM user JOIN pegawai ON pegawai.nis = user.nis where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+$jumlah_record1 = mysqli_query($db, "SELECT user.id, pegawai.* FROM user JOIN pegawai ON pegawai.nip = user.nip where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
 $data = mysqli_fetch_assoc($jumlah_record1);
-$niss = $data['nis'];
+$nips = $data['nip'];
 $namas = $data['nama'];
 $jabatans = $data['jabatan'];
 $bidangs = $data['bidang'];

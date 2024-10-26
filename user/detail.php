@@ -15,7 +15,7 @@
                 $username     = $data['username'];
                 $password     = $data['password'];
                 $level        = $data['level'];
-                $nis          = $data['nis'];
+                $nip          = $data['nip'];
             }
         }
         ?>
@@ -32,7 +32,7 @@
                         echo '$password';
                     }  ?></b></li>
             <li class="list-group-item">Level : <b><?php echo $level; ?></b></li>
-            <li class="list-group-item">Nis : <b><?php echo $nis; ?></b></li>
+            <li class="list-group-item">Nip : <b><?php echo $nip; ?></b></li>
         </ul>
 
         <?php

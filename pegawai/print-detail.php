@@ -3,10 +3,10 @@
         <br>
         <?php
         if (isset($_GET['id'])) {
-            $nis   = $_GET['id'];
-            $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nis='$nis'") or die('Query Error : ' . mysqli_error($db));
+            $nip   = $_GET['id'];
+            $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
-                $nis        = $data['nis'];
+                $nip        = $data['nip'];
                 $nama       = $data['nama'];
                 $jabatan    = $data['jabatan'];
                 $bidang     = $data['bidang'];
@@ -21,7 +21,7 @@
             <li class="list-group-item active"><b>
                     <center>DETAIL DATA PEGAWAI</center>
                 </b></li>
-            <li class="list-group-item">NIS : <b><?php echo $nis; ?></b></li>
+            <li class="list-group-item">Nip : <b><?php echo $nip; ?></b></li>
             <li class="list-group-item">Nama : <b><?php echo $nama; ?></b></li>
             <li class="list-group-item">Jabatan : <b><?php echo $jabatan; ?></b></li>
             <li class="list-group-item">Bidang : <b><?php echo $bidang; ?></b></li>

@@ -4,7 +4,7 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
               <li class="sidebar-item">
-              <a class="sidebar-link" href="?page=user-tampil" aria-expanded="false">
+              <a class="sidebar-link" href="?page=pegawai-tampil" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
@@ -20,7 +20,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="?page=pensiun-tampil" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
@@ -28,7 +28,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="?page=kp-tampil" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>

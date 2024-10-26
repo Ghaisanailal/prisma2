@@ -1,5 +1,5 @@
 <div class="panel-heading">
-        <h3 class="panel-title">Data Pegawai</h3>
+        <h3 class="panel-title">Data Pensiun</h3>
         <?php
       if ($_SESSION['level'] == "Admin") {
         echo "<a class='btn btn-info' href='?page=tambah'>
@@ -42,33 +42,34 @@ if (isset($_POST['cari'])) {
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Pegawai berhasil disimpan.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Pegawai berhasil diubah.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Pegawai berhasil dihapus.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Hampura mang euy!</strong> Kedahna tipe file na jpg, jpeg, png atanapi pdf.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Hampura mang euy!</strong> Kedahna tipe file na pdf.
           </div>";
         }
         ?>
 
-        
+      
+            </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
@@ -79,6 +80,7 @@ if (isset($_POST['cari'])) {
                                 <th>Nama</th>
                                 <th>Jabatan</th>
                                 <th>Bidang</th>
+                                <th>Status</th>
                                 <th class='center'>Aksi</th>
                             </tr>
                         </thead>
@@ -89,9 +91,9 @@ if (isset($_POST['cari'])) {
                             $batas = 10;
 
                             if (isset($cari)) {
-                                $jumlah_record = mysqli_query($db, "SELECT * FROM pegawai WHERE nip LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             } else {
-                                $jumlah_record = mysqli_query($db, "SELECT * FROM pegawai") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
@@ -101,10 +103,10 @@ if (isset($_POST['cari'])) {
                             /*-------------------------------------------------------------------*/
                             $no = 1;
                             if (isset($cari)) {
-                                $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nip LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
-                                    or die('Ada kesalahan pada query pegawai: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
+                                    or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             } else {
-                                $query = mysqli_query($db, "SELECT * FROM pegawai ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query pegawai: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan,  pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             }
 
                             while ($data = mysqli_fetch_assoc($query)) {
@@ -112,24 +114,23 @@ if (isset($_POST['cari'])) {
                                 echo "  <tr>
                       <td width='20'>$no</td>
                       <td width='100'>$data[nip]</td>
-                      <td width='150'>$data[nama]</td>
+                      <td width='75'>$data[nama]</td>
                       <td width='150'>$data[jabatan]</td>
-                      <td width='150'>$data[bidang]</td>
-                      <td width='150' class='center'>
+                      <td width='50'>$data[bidang]</td>
+                      <td width='50'>$data[status]</td>
+                      <td width='100' class='center'>
                         <div class=''>
-
-                        <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=pegawai-detail&id=$data[nip]'> <i class='ti ti-eye'></i> </a> 
-
-                        <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=pegawai-print-detail&id=$data[nip]' target='_blank'> <i class='ti ti-printer'></i> </a>
-
-                        <a data-toggle='tooltip' data-placement='top' title='Edit' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=pegawai-edit&id=$data[nip]'> <i class='ti ti-edit'></i></a>
-                        
-                        <a data-toggle='tooltip' data-placement='top' title='Kirim' style='margin-right:5px' class='btn btn-info btn-sm' href='?page=pegawai-kirim&id=$data[nip]'><i class='ti ti-share'></i></a>  
-                                                
-                                                ";
-
+                        <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=seminar-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i></a>
+                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=seminar-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i></a>";;
                             ?>
-                                <a data-toggle="tooltip" data-placement="top" title="Hapus" class="btn btn-danger btn-sm" href="?page=pegawai-hapus&id=<?php echo $data['nip']; ?>" onclick="return confirm('Anda yakin ingin menghapus <?php echo $data['nama']; ?>?');"> <i class="ti ti-trash"></i></a>
+                                <?php
+                                if ($_SESSION['level'] == "Admin") {
+                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=seminar-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+
+                                    echo " <a data-toggle='tooltip' data-placement='top' title='Aktivasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-seminar&id=$data[idseminar]'> <i class='ti ti-square-rounded-check'></i></a>";
+                                } else if ($_SESSION['level'] == "User") {
+                                }
+                                ?>
                             <?php
                                 echo "
                         </div>
@@ -166,7 +167,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=pegawai-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <a href="?page=seminar-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
@@ -178,7 +179,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
                                 <li class="">
-                                    <a href="?page=pegawai-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
+                                    <a href="?page=seminar-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
                                 </li>
                             <?php
                             }
@@ -195,7 +196,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=pegawai-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <a href="?page=seminar-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
