@@ -24,7 +24,7 @@ if (isset($_POST['cari'])) {
 
 
 <br>
-<form class="form-inline" method="POST" action="?page=user-tampil">
+<form class="form-inline" method="POST" action="?page=pegawai-tampil">
 <input type="text" name="cari" class="form-control" placeholder="cari ..." required="required" value="<?php echo $cari; ?>">
     </form>
         <?php

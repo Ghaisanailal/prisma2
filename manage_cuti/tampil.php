@@ -18,13 +18,13 @@ if (isset($_POST['cari'])) {
 ?>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-14">
     <div class="page-header">
 
 
 
 <br>
-<form class="form-inline" method="POST" action="?page=user-tampil">
+<form class="form-inline" method="POST" action="?page=cuti-tampil">
 <input type="text" name="cari" class="form-control" placeholder="cari ..." required="required" value="<?php echo $cari; ?>">
     </form>
         <?php
@@ -42,28 +42,28 @@ if (isset($_POST['cari'])) {
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil disimpan.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil diubah.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data seminar berhasil dihapus.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Hampura mang euy!</strong> Kedahna tipe file na pdf.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sorry!</strong> tipe file yg anda kirim harus pdf.
           </div>";
         }
         ?>
@@ -121,13 +121,15 @@ if (isset($_POST['cari'])) {
                       <td width='100' class='center'>
                         <div class=''>
                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=seminar-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i></a>
-                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=seminar-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i></a>";;
+                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=manage_cuti-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i></a>";;
                             ?>
                                 <?php
+                                
                                 if ($_SESSION['level'] == "Admin") {
-                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=seminar-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' style='margin-right:5px' class='btn btn-danger btn-sm' href='?page=manage_cuti-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                   
 
-                                    echo " <a data-toggle='tooltip' data-placement='top' title='Aktivasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-seminar&id=$data[idseminar]'> <i class='ti ti-square-rounded-check'></i></a>";
+                                    echo " <a data-toggle='tooltip' data-placement='top' title='Edit' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=manage_data-aktivasi-cuti&id=$data[nip]'> <i class='ti ti-zoom-check'></i></a>";
                                 } else if ($_SESSION['level'] == "User") {
                                 }
                                 ?>
@@ -167,7 +169,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=seminar-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
@@ -179,7 +181,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
                                 <li class="">
-                                    <a href="?page=seminar-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
+                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
                                 </li>
                             <?php
                             }
@@ -196,7 +198,7 @@ if (isset($_POST['cari'])) {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=seminar-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>

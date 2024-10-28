@@ -35,7 +35,7 @@ if (empty($_GET["page"])) {
     include "manage_cuti/print-detail.php";
 } elseif ($_GET['page'] == 'aktivasi-cuti') {
     include "manage_cuti/aktivasi-cuti.php";
-} elseif ($_GET['page'] == 'aktivasi-sem') {
+} elseif ($_GET['page'] == 'aktivasi-ct') {
     include "manage_cuti/aktivasi.php";
 } elseif ($_GET['page'] == 'cuti-hapus') {
     include "manage_cuti/hapus.php";
@@ -107,9 +107,9 @@ elseif ($_GET['page'] == 'users-edit') {
 } elseif ($_GET['page'] == 'seminar-print-detail') {
     include "seminar/print-detail.php";
 } elseif ($_GET['page'] == 'aktivasi-seminar') {
-    include "seminar/aktivasi-seminar.php";
-} elseif ($_GET['page'] == 'aktivasi-sem') {
-    include "seminar/aktivasi.php";
+    include "manage_cuti/aktivasi-cuti.php";
+} elseif ($_GET['page'] == 'aktivasi-ct') {
+    include "manage_cuti/aktivasi-ct.php";
 } elseif ($_GET['page'] == 'seminar-hapus') {
     include "seminar/hapus.php";
 } elseif ($_GET['page'] == 'tampil-nilai') {
