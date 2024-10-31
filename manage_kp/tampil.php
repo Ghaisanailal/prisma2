@@ -91,9 +91,9 @@ if (isset($_POST['cari'])) {
                             $batas = 10;
 
                             if (isset($cari)) {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             } else {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
@@ -103,10 +103,10 @@ if (isset($_POST['cari'])) {
                             /*-------------------------------------------------------------------*/
                             $no = 1;
                             if (isset($cari)) {
-                                $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan, pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
+                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
                                     or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             } else {
-                                $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan,  pegawai.bidang FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan,  user.bidang FROM seminar JOIN user ON user.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             }
 
                             while ($data = mysqli_fetch_assoc($query)) {
@@ -120,17 +120,25 @@ if (isset($_POST['cari'])) {
                       <td width='50'>$data[status]</td>
                       <td width='100' class='center'>
                         <div class=''>
-                        <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=seminar-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i></a>
-                        <a data-toggle='tooltip' data-placement='top' title='Print Detail' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=seminar-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i></a>";;
-                            ?>
-                                <?php
-                                if ($_SESSION['level'] == "Admin") {
-                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=seminar-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
 
-                                    echo " <a data-toggle='tooltip' data-placement='top' title='Aktivasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-seminar&id=$data[idseminar]'> <i class='ti ti-square-rounded-check'></i></a>";
-                                } else if ($_SESSION['level'] == "User") {
-                                }
-                                ?>
+
+                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=manage_cuti-detail&id=$data[nip]'> <i class='ti ti-eye'></i> </a> 
+
+                        
+
+
+    
+                                                
+                                                ";
+                                                ?>
+                                                <?php
+                                                if ($_SESSION['level'] == "Admin") {
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=manage_cuti-aktivasi-cuti&id=$data[nip]'> <i class='ti ti-zoom-check'></i></a>";
+                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=manage_cuti-hapus&id=$data[nip]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                                } else if ($_SESSION['level'] == "Pegawai") {
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=manage_cuti-print-detail&id=$data[nip]' target='_blank'> <i class='ti ti-printer'></i> </a>";
+                                                }
+                                                ?>
                             <?php
                                 echo "
                         </div>
@@ -161,14 +169,14 @@ if (isset($_POST['cari'])) {
                             if ($halaman_aktif <= '1') { ?>
                                 <li class="disabled">
                                     <a href="" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=seminar-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
+                                    <a href="?page=manage_kp-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
                             <?php
@@ -178,9 +186,9 @@ if (isset($_POST['cari'])) {
                             <!-- Link halaman 1 2 3 ... -->
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
-                                <li class="">
-                                    <a href="?page=seminar-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a>
-                                </li>
+                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_kp-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
+                                    
+                                
                             <?php
                             }
                             ?>
@@ -190,14 +198,14 @@ if (isset($_POST['cari'])) {
                             if ($halaman_aktif >= $halaman) { ?>
                                 <li class="disabled">
                                     <a href="" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=seminar-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
+                                    <a href="?page=manage_kp-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>
                             <?php

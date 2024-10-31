@@ -4,7 +4,7 @@
         <?php
         if (isset($_GET['id'])) {
             $nip   = $_GET['id'];
-            $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
+            $query = mysqli_query($db, "SELECT * FROM user WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
                 $nip        = $data['nip'];
                 $nama       = $data['nama'];

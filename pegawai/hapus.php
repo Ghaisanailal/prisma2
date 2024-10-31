@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $nip = $_GET['id'];
 
     // perintah query untuk menghapus data pada tabel
-    $query = mysqli_query($db, "DELETE FROM pegawai WHERE nip='$nip'");
+    $query = mysqli_query($db, "DELETE FROM user WHERE nip='$nip'");
 
     // cek hasil query
     if ($query) {

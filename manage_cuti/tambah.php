@@ -1,6 +1,6 @@
 <br>
 <center>
-    <p><label>Formulir Pendaftaran Seminar</label>
+    <p><label>Formulir Pengusulan Cuti</label>
 </center>
 <div class=" row">
     <div class="col-md-12">
@@ -8,28 +8,28 @@
         $ids = $_SESSION['id'];
         $jumlah_record1 = mysqli_query($db, "SELECT * FROM user where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
         $data = mysqli_fetch_assoc($jumlah_record1);
-        $niss = $data['nis'];
+        $nips = $data['nip'];
         ?>
         <div class="panel panel-default">
             <div class="panel-body">
                 <form class="form-horizontal" action="?page=seminar-simpan" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">NIS</label>
+                        <label class="col-sm-2 control-label">NIP</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="nis" value="<?php echo $niss; ?>" readonly>
+                            <input type="text" class="form-control" name="nis" value="<?php echo $nips; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Judul Seminar</label>
+                        <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" name="judul" value="" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">File Seminar</label>
+                        <label class="col-sm-2 control-label">Dokumen Persyaratan Cuti</label>
                         <div class="col-sm-3">
                             <input type="file" class="form-control" name="file" required>
                         </div>

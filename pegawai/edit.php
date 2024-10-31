@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $nip   = $_GET['id'];
-    $query = mysqli_query($db, "SELECT * FROM pegawai WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
+    $query = mysqli_query($db, "SELECT * FROM user WHERE nip='$nip'") or die('Query Error : ' . mysqli_error($db));
     while ($data  = mysqli_fetch_assoc($query)) {
         $nip      = $data['nip'];
         $nama     = $data['nama'];
@@ -38,8 +38,10 @@ if (isset($_GET['id'])) {
                 <div class="col-sm-5">
                     <select class="form-control" name="jabatan" placeholder="Pilih Jabatan" required>
                         <option value="<?php echo $jabatan; ?>"><?php echo $jabatan; ?></option>
-                        <option value="Pembimbing">Pembimbing</option>
-                        <option value="Penguji">Penguji</option>
+                        <option value="Pembimbing">Kepala Kantor</option>
+                        <option value="Pembimbing">KASI</option>
+                        <option value="Pembimbing">KASUBAG</option>
+                                
                     </select>
                 </div>
             </div>

@@ -24,7 +24,7 @@ if ($foto != "") {
         move_uploaded_file($file_tmp, 'pegawai/gambar/' . $nama_foto_baru); //memindah file foto ke folder foto
 
         // jalankan query UPDATE berdasarkan nip yang pegawainya kita edit
-        $query  = "UPDATE pegawai SET nama = '$nama', jabatan = '$jabatan', bidang = '$bidang', telp = '$telp', email = '$email', foto = '$nama_foto_baru'";
+        $query  = "UPDATE user SET nama = '$nama', jabatan = '$jabatan', bidang = '$bidang', telp = '$telp', email = '$email', foto = '$nama_foto_baru'";
         $query .= "WHERE nip = '$nip'";
         $result = mysqli_query($db, $query);
         // periska query apakah ada error
@@ -40,7 +40,7 @@ if ($foto != "") {
     }
 } else {
     // jalankan query UPDATE berdasarkan nip yang pegawainya kita edit
-    $query  = "UPDATE pegawai SET nama = '$nama', jabatan = '$jabatan', bidang = '$bidang', telp = '$telp', email = '$email'";
+    $query  = "UPDATE user SET nama = '$nama', jabatan = '$jabatan', bidang = '$bidang', telp = '$telp', email = '$email'";
     $query .= "WHERE nip = '$nip'";
     $result = mysqli_query($db, $query);
     // periska query apakah ada error

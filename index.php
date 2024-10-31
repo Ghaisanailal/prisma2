@@ -102,7 +102,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
                     <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <a href="?page=users-edit&id=<?php echo $ids ?>" class="btn btn-outline-primary mx-3 mt-2 d-block">                      <i class="ti ti-user fs-6"></i>
+                      <a href="?page=pegawai-edit&id=<?php echo $ids ?>" class="btn btn-outline-primary mx-3 mt-2 d-block">                      <i class="ti ti-user fs-6"></i>
                       My Account</a>
                     </a>
                    

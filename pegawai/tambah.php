@@ -16,7 +16,13 @@
                         <div class="col-sm-3">
                             <input type="text" class="form-control" name="nip" autocomplete="off" required>
                         </div>
+
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="username" autocomplete="off" required>
+                        </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nama Lengkap</label>
@@ -26,11 +32,19 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Level</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="level" autocomplete="off" required>
+                        </div>
+
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Jabatan</label>
                         <div class="col-sm-3">
                             <select class="form-control" name="jabatan" placeholder="Pilih Jabatan" required>
-                                <option value="Pembimbing">Pembimbing</option>
-                                <option value="Penguji">Penguji</option>
+                                <option value="Pembimbing">Kepala Kantor</option>
+                                <option value="Pembimbing">KASI</option>
+                                <option value="Pembimbing">KASUBAG</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -38,17 +52,19 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Bidang</label>
                         <div class="col-sm-3">
-                            <select class="form-control" name="bidang" placeholder="Pilih Bidang" required>
-                                <option value="Diskominfosanditik">Diskominfosanditik</option>
-                                <option value="BPKAD">BPKAD</option>
-                                <option value="Dinas Arsip">Dinas Arsip</option>
-                                <option value="Kementerian Agama">Kementerian Agama</option>
-                                <option value="Disparbudpora">Disparbudpora</option>
-                                <option value="Disdukcapil">Disdukcapil</option>
-                                <option value="Dinas Pendidikan">Dinas Pendidikan</option>
-                                <option value="Diskoperindag">Diskoperindag</option>
-                                <option value="Laporan">Laporan</option>
-                                <option value="Aplikasi">Aplikasi</option>
+                        <select class="form-control" name="bidang" placeholder="Pilih Bidang" required>
+                        <option value="<?php echo $bidang; ?>"><?php echo $bidang; ?></option>
+                        <option value="Kepala Kantor">Kepala Kantor</option>
+                        <option value="KA SUBAB TU">KA SUBAB TU</option>
+                        <option value="KEUANGAN">KEUANGAN</option>
+                        <option value="UP">UP</option>
+                        <option value="PENMAD">PENMAD</option>
+                        <option value="PD_PONTREN">PD_PONTREN</option>
+                        <option value="PAIS">PAIS</option>
+                        <option value="PHU">PHU</option>
+                        <option value="BIMAS ISLAM">BIMAS ISLAM</option>
+                        <option value="ZAKAT & WAKAF">ZAKAT & WAKAF</option>
+                        
                             </select>
                         </div>
                     </div>

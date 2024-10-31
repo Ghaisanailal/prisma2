@@ -7,7 +7,7 @@
 
         if (isset($_GET['id'])) {
             $idseminar   = $_GET['id'];
-            $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
+            $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan FROM seminar JOIN user ON user.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
                 $idseminar        = $data['idseminar'];
                 $nama             = $data['nama'];
