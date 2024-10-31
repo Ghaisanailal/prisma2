@@ -34,7 +34,12 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Level</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="level" autocomplete="off" required>
+                            <select class="form-control" name="level" placeholder="Pilih level" required>
+                                <option value="Pembimbing">Admin</option>
+                                <option value="Pembimbing">Pegawai</option>
+                           
+                                
+                            </select>
                         </div>
 
                     <div class="form-group">
@@ -44,7 +49,7 @@
                                 <option value="Pembimbing">Kepala Kantor</option>
                                 <option value="Pembimbing">KASI</option>
                                 <option value="Pembimbing">KASUBAG</option>
-                                
+                                <option value="Pembimbing">STAF</option>
                             </select>
                         </div>
                     </div>
@@ -53,9 +58,10 @@
                         <label class="col-sm-2 control-label">Bidang</label>
                         <div class="col-sm-3">
                         <select class="form-control" name="bidang" placeholder="Pilih Bidang" required>
-                        <option value="<?php echo $bidang; ?>"><?php echo $bidang; ?></option>
-                        <option value="Kepala Kantor">Kepala Kantor</option>
-                        <option value="KA SUBAB TU">KA SUBAB TU</option>
+                       
+                        <option value="Kepala Kantor">Kementrian Agama</option>
+                        <option value="TU">TU</option>
+                        <option value="UMUM">UMUM</option>
                         <option value="KEUANGAN">KEUANGAN</option>
                         <option value="UP">UP</option>
                         <option value="PENMAD">PENMAD</option>

@@ -15,5 +15,5 @@ if (!$result) {
     die("Query gagal dijalankan: " . mysqli_errno($db) .
         " - " . mysqli_error($db));
 } else {
-    echo "<script>window.location='?page=seminar-tampil&alert=3';</script>";
+    echo "<script>window.location='?page=cuti-tampil&alert=3';</script>";
 }

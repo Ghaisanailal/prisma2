@@ -31,6 +31,8 @@ if (empty($_GET["page"])) {
     include "manage_cuti/tampil.php";
 } elseif ($_GET['page'] == 'cuti-tambah') {
     include "manage_cuti/tambah.php";
+     } elseif ($_GET['page'] == 'cuti-simpan') {
+        include "manage_cuti/simpan.php";
 } elseif ($_GET['page'] == 'cuti-detail') {
     include "manage_cuti/detail.php";
 } elseif ($_GET['page'] == 'cuti-print-detail') {

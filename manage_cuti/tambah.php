@@ -12,21 +12,15 @@
         ?>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form class="form-horizontal" action="?page=seminar-simpan" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="?page=cuti-simpan" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">NIP</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="nis" value="<?php echo $nips; ?>" readonly>
+                            <input type="text" class="form-control" name="nip" value="<?php echo $nips; ?>" readonly>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"></label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" name="judul" value="" required>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dokumen Persyaratan Cuti</label>
@@ -35,11 +29,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Tautan Aplikasi</label>
-                        <div class="col-sm-3">
-                            <input type="link" class="form-control" name="tautan" placeholder="ex: github.com/AhmadMauludin/PWEB12" required>
-                        </div>
+                   
                     </div>
 
                     <input type="hidden" class="form-control" name="statussem" value="Menunggu Persetujuan">

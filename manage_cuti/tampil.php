@@ -133,10 +133,10 @@ if (isset($_POST['cari'])) {
                                                 ?>
                                                 <?php
                                                 if ($_SESSION['level'] == "Admin") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=manage_cuti-aktivasi-cuti&id=$data[idseminar]'> <i class='ti ti-zoom-check'></i></a>";
-                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=manage_cuti-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-cuti&id=$data[idseminar]'> <i class='ti ti-zoom-check'></i></a>";
+                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=cuti-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
                                                 } else if ($_SESSION['level'] == "Pegawai") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=manage_cuti-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i> </a>";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=cuti-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i> </a>";
                                                 }
                                                 ?>
                         

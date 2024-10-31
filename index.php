@@ -106,7 +106,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
                       My Account</a>
                     </a>
                    
-                    <a href="logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block"><i class="ti ti-logout"></i>Logout</a>
                   </div>
                 </div>
               </li>

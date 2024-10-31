@@ -36,7 +36,7 @@ if (empty($_GET["page"])) {
 } elseif ($_GET['page'] == 'aktivasi-cuti') {
     include "manage_cuti/aktivasi-cuti.php";
 } elseif ($_GET['page'] == 'aktivasi-ct') {
-    include "manage_cuti/aktivasi.php";
+    include "manage_cuti/aktivasi-ct.php";
 } elseif ($_GET['page'] == 'cuti-hapus') {
     include "manage_cuti/hapus.php";
 } elseif ($_GET['page'] == 'tampil-sk') {

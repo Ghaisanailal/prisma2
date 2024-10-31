@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $idseminar   = $_GET['id'];
-    $query = mysqli_query($db, "SELECT seminar.*, pegawai.nama, pegawai.jabatan FROM seminar JOIN pegawai ON pegawai.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
+    $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan FROM seminar JOIN user ON user.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
     while ($data  = mysqli_fetch_assoc($query)) {
         $idseminar        = $data['idseminar'];
         $nama             = $data['nama'];
@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
 <div class="row">
     <div class="col-md-12">
         <br>
-        <form class="form-horizontal" method="POST" action="?page=manage_data-tampil" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="?page=aktivasi-ct" enctype="multipart/form-data">
 
             <input type="hidden" class="form-control" name="idseminar" value="<?php echo $idseminar; ?>">
 
@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         </form>
-        <a href="?page=manage_cuti-tampil" class="btn btn-default btn-reset">Kembali</a>
+        <a href="?page=cuti-tampil" class="btn btn-default btn-reset">Kembali</a>
 
         <hr>
     </div>

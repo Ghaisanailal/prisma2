@@ -1,32 +1,33 @@
 <?php
 include 'config/database.php';
 
-$nis             = $_POST['nis'];
-$judul           = $_POST['judul'];
-$tautan          = $_POST['tautan'];
-$statussem       = $_POST['statussem'];
-$ket             = $_POST['ket'];
-$pengujilap      = $_POST['pengujilap'];
-$pengujiapl      = $_POST['pengujiapl'];
-$nilaiprakerin   = $_POST['nilaiprakerin'];
-$nilailaporan    = $_POST['nilailaporan'];
-$nilaiaplikasi   = $_POST['nilaiaplikasi'];
+$nip        = $_POST['nip'];
+$id        = $_POST['id'];
+$username        = $_POST['username'];
+$nama       = $_POST['nama'];
+$level       = $_POST['level'];
+$password       = $_POST['password'];
+$jabatan    = $_POST['jabatan'];
+$bidang     = $_POST['bidang'];
+$telp       = $_POST['telp'];
+$email      = $_POST['email'];
 
 $rand = rand();
-$ekstensi =  array('pdf');
-$filename = $_FILES['file']['name'];
-$ukuran = $_FILES['file']['size'];
+$ekstensi =  array('png', 'jpg', 'jpeg', 'gif');
+$filename = $_FILES['foto']['name'];
+$ukuran = $_FILES['foto']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 if (!in_array($ext, $ekstensi)) {
-    header("location:?page=seminar&alert=1");
+    header("location:?page=cuti-tampil&alert=1");
 } else {
-    if ($ukuran < 10044070) {
+    if ($ukuran < 1044070) {
         $xx = $rand . '_' . $filename;
-        move_uploaded_file($_FILES['file']['tmp_name'], 'seminar/files/' . $rand . '_' . $filename);
-        mysqli_query($db, "INSERT INTO seminar VALUES('null','$nis','$judul','$xx','$tautan','$statussem','$ket','$pengujilap','$pengujiapl','$nilaiprakerin','$nilailaporan','$nilaiaplikasi')");
-        header("location:?page=seminar&alert=2");
+        move_uploaded_file($_FILES['foto']['tmp_name'], 'pegawai/gambar/' . $rand . '_' . $filename);
+        mysqli_query($db, "INSERT INTO user VALUES('$nip','$nip','$username','$nama','$level','$password','$jabatan','$bidang','$telp','$email','$photo')");
+        header("location:?page=cuti-tampil&alert=2");
     } else {
-        header("location:?page=seminar&alert=1");
+        header("location:?page=cuti-tampil&alert=1");
     }
 }
+
