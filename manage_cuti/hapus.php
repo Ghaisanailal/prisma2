@@ -4,10 +4,10 @@ require_once "config/database.php";
 
 if (isset($_GET['id'])) {
 
-    $idseminar = $_GET['id'];
+    $idcuti = $_GET['id'];
 
     // perintah query untuk menghapus data pada tabel
-    $query = mysqli_query($db, "DELETE FROM seminar WHERE idseminar='$idseminar'");
+    $query = mysqli_query($db, "DELETE FROM cuti WHERE idcuti='$idcuti'");
 
     // cek hasil query
     if ($query) {

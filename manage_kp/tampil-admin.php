@@ -1,8 +1,8 @@
 <div class="panel-heading">
-        <h3 class="panel-title">Data Cuti</h3>
+        <h3 class="panel-title">Data kp</h3>
         <?php
       if ($_SESSION['level'] == "Pegawai") {
-        echo "<a class='btn btn-info' href='?page=cuti-tambah'>
+        echo "<a class='btn btn-info' href='?page=kp-tambah'>
       <i class='glyphicon glyphicon-plus'></i> Tambah </a>";
       } else if ($_SESSION['level'] == "Admin") {
         echo "Gak boleh masukin data";
@@ -26,13 +26,14 @@ if (isset($_POST['cari'])) {
 <br>
 <?php
 if ($_SESSION['level'] == "Admin") {
-    echo '<form class="form-inline" method="POST" action="?page=cuti-tampil">
+    echo '<form class="form-inline" method="POST" action="?page=kp-tampil">
             <input type="text" name="cari" class="form-control" placeholder="cari ..." required="required" value="' . htmlspecialchars($cari) . '">
           </form>';
 } else if ($_SESSION['level'] == "Pegawai") {
     // Tidak ada output untuk Pegawai
 }
 ?>
+
         <?php
         if (empty($_GET['alert'])) {
             echo "";
@@ -48,21 +49,21 @@ if ($_SESSION['level'] == "Admin") {
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil disimpan.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data kp berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil diubah.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data kp berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data Cuti berhasil dihapus.
+            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data kp berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
@@ -92,16 +93,15 @@ if ($_SESSION['level'] == "Admin") {
                         </thead>
 
                         <tbody>
-
-                        
                             <?php
-
                             /* Pagination */
                             $batas = 10;
-                            $idu = $_SESSION['id'];
 
-
-                           $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE  jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            if (isset($cari)) {
+                                $jumlah_record = mysqli_query($db, "SELECT kp.*, user.nama, user.jabatan, user.bidang FROM kp JOIN user ON user.nip = kp.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            } else {
+                                $jumlah_record = mysqli_query($db, "SELECT kp.*, user.nama, user.jabatan, user.bidang  FROM kp JOIN user ON user.nip = kp.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
                             $halaman = ceil($jumlah / $batas);
@@ -109,11 +109,14 @@ if ($_SESSION['level'] == "Admin") {
                             $mulai   = ($page - 1) * $batas;
                             /*-------------------------------------------------------------------*/
                             $no = 1;
-
-                            $query = mysqli_query($db, "SELECT seminar.*,user.nama, user.jabatan,  user.bidang FROM seminar,user WHERE  user.nip = seminar.nip AND seminar.nip = $idu LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                            if (isset($cari)) {
+                                $query = mysqli_query($db, "SELECT kp.*, user.nama, user.jabatan, user.bidang FROM kp JOIN user ON user.nip = kp.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
+                                    or die('Ada kesalahan pada query kp: ' . mysqli_error($db));
+                            } else {
+                                $query = mysqli_query($db, "SELECT kp.*, user.nama, user.jabatan, user.bidang FROM kp JOIN user ON user.nip = kp.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query kp: ' . mysqli_error($db));
+                            }
 
                             while ($data = mysqli_fetch_assoc($query)) {
-                            
 
                                 echo "  <tr>
                       <td width='20'>$no</td>
@@ -126,7 +129,7 @@ if ($_SESSION['level'] == "Admin") {
                         <div class=''>
 
 
-                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=cuti-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i> </a> 
+                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=kp-detail&id=$data[idkp]'> <i class='ti ti-eye'></i> </a> 
 
                         
 
@@ -137,10 +140,10 @@ if ($_SESSION['level'] == "Admin") {
                                                 ?>
                                                 <?php
                                                 if ($_SESSION['level'] == "Admin") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-cuti&id=$data[idseminar]'> <i class='ti ti-zoom-check'></i></a>";
-                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=cuti-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-kp&id=$data[idkp]'> <i class='ti ti-zoom-check'></i></a>";
+                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=kp-hapus&id=$data[idkp]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
                                                 } else if ($_SESSION['level'] == "Pegawai") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=cuti-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i> </a>";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=kp-print-detail&id=$data[idkp]' target='_blank'> <i class='ti ti-printer'></i> </a>";
                                                 }
                                                 ?>
                         
@@ -184,7 +187,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <a href="?page=manage_kp-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
@@ -195,7 +198,7 @@ if ($_SESSION['level'] == "Admin") {
                             <!-- Link halaman 1 2 3 ... -->
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
-                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_cuti-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
+                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_kp-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
                                     
                                 
                             <?php
@@ -213,7 +216,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <a href="?page=manage_kp-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>

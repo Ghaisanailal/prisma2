@@ -6,10 +6,10 @@
 
 
         if (isset($_GET['id'])) {
-            $idseminar   = $_GET['id'];
-            $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan FROM seminar JOIN user ON user.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
+            $idpensiun   = $_GET['id'];
+            $query = mysqli_query($db, "SELECT pensiun.*, user.nama, user.jabatan FROM pensiun JOIN user ON user.nip = pensiun.nip WHERE idpensiun='$idpensiun'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
-                $idseminar        = $data['idseminar'];
+                $idpensiun        = $data['idpensiun'];
                 $nama             = $data['nama'];
                 $nip              = $data['nip'];
                 $file             = $data['file'];
@@ -22,10 +22,10 @@
         ?>
 
         <ul class="list-group">
-            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN CUTI</b></li>
-            <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idseminar; ?></li>
+            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN pensiun</b></li>
+            <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idpensiun; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
-            <li class="list-group-item"><b>File : </b><a href="seminar/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
+            <li class="list-group-item"><b>File : </b><a href="pensiun/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
             <li class="list-group-item"><b>Status : <?php echo $status; ?></b> (<?php echo $ket; ?>)</li>
 
         </ul>

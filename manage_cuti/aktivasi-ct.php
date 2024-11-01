@@ -1,14 +1,14 @@
 <?php
 // memanggil file koneksi.php untuk melakukan koneksi database
 require_once 'config/database.php';
-$idseminar      = $_POST['idseminar'];
+$idcuti      = $_POST['idcuti'];
 $status      = $_POST['status'];
 $ket            = $_POST['ket'];
 
 
-// jalankan query UPDATE berdasarkan NIS yang seminarnya kita edit
-$query  = "UPDATE seminar SET status = '$status', ket = '$ket'";
-$query .= "WHERE idseminar = '$idseminar'";
+// jalankan query UPDATE berdasarkan NIS yang cutinya kita edit
+$query  = "UPDATE cuti SET status = '$status', ket = '$ket'";
+$query .= "WHERE idcuti = '$idcuti'";
 $result = mysqli_query($db, $query);
 // periska query apakah ada error
 if (!$result) {

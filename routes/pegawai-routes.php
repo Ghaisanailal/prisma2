@@ -28,7 +28,7 @@ if (empty($_GET["page"])) {
     // pengusulan cuti
 
 } elseif ($_GET['page'] == 'cuti-tampil') {
-    include "manage_cuti/tampil.php";
+    include "manage_cuti/tampil-pegawai.php";
 } elseif ($_GET['page'] == 'cuti-tambah') {
     include "manage_cuti/tambah.php";
      } elseif ($_GET['page'] == 'cuti-simpan') {
@@ -90,17 +90,9 @@ elseif ($_GET['page'] == 'users-edit') {
 }
    
 
-    // users
-  elseif ($_GET['page'] == 'users-tampil') {
-    include "users/tampil.php";
-} elseif ($_GET['page'] == 'users-detail') {
-    include "users/detail.php";
-} elseif ($_GET['page'] == 'users-edit') {
-    include "users/edit.php";
-} elseif ($_GET['page'] == 'users-print-detail') {
-    include "users/print-detail.php";
+
     // seminar
-} elseif ($_GET['page'] == 'seminar-tampil') {
+  elseif ($_GET['page'] == 'seminar-tampil') {
     include "seminar/tampil.php";
 } elseif ($_GET['page'] == 'tampil-nilai') {
     include "seminar/tampil-nilai.php";

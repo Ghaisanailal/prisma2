@@ -1,9 +1,9 @@
 <?php
 if (isset($_GET['id'])) {
-    $idseminar   = $_GET['id'];
-    $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan FROM seminar JOIN user ON user.nip = seminar.nip WHERE idseminar='$idseminar'") or die('Query Error : ' . mysqli_error($db));
+    $idcuti   = $_GET['id'];
+    $query = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan FROM cuti JOIN user ON user.nip = cuti.nip WHERE idcuti='$idcuti'") or die('Query Error : ' . mysqli_error($db));
     while ($data  = mysqli_fetch_assoc($query)) {
-        $idseminar        = $data['idseminar'];
+        $idcuti        = $data['idcuti'];
         $nama             = $data['nama'];
         $jabatan          = $data['jabatan'];
         $nip              = $data['nip'];
@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
         <br>
         <form class="form-horizontal" method="POST" action="?page=aktivasi-ct" enctype="multipart/form-data">
 
-            <input type="hidden" class="form-control" name="idseminar" value="<?php echo $idseminar; ?>">
+            <input type="hidden" class="form-control" name="idcuti" value="<?php echo $idcuti; ?>">
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nama - Jabatan</label>

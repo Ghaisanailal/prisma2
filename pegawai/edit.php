@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
                         <option value="Pembimbing">Kepala Kantor</option>
                         <option value="Pembimbing">KASI</option>
                         <option value="Pembimbing">KASUBAG</option>
-                                
+                        <option value="Pembimbing">STAF</option>
                     </select>
                 </div>
             </div>

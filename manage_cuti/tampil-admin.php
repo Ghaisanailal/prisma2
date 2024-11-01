@@ -98,9 +98,9 @@ if ($_SESSION['level'] == "Admin") {
                             $batas = 10;
 
                             if (isset($cari)) {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan, user.bidang FROM cuti JOIN user ON user.nip = cuti.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             } else {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang  FROM seminar JOIN user ON user.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan, user.bidang  FROM cuti JOIN user ON user.nip = cuti.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
@@ -110,10 +110,10 @@ if ($_SESSION['level'] == "Admin") {
                             /*-------------------------------------------------------------------*/
                             $no = 1;
                             if (isset($cari)) {
-                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
-                                    or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan, user.bidang FROM cuti JOIN user ON user.nip = cuti.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
+                                    or die('Ada kesalahan pada query cuti: ' . mysqli_error($db));
                             } else {
-                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan, user.bidang FROM cuti JOIN user ON user.nip = cuti.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query cuti: ' . mysqli_error($db));
                             }
 
                             while ($data = mysqli_fetch_assoc($query)) {
@@ -129,7 +129,7 @@ if ($_SESSION['level'] == "Admin") {
                         <div class=''>
 
 
-                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=cuti-detail&id=$data[idseminar]'> <i class='ti ti-eye'></i> </a> 
+                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=cuti-detail&id=$data[idcuti]'> <i class='ti ti-eye'></i> </a> 
 
                         
 
@@ -140,10 +140,10 @@ if ($_SESSION['level'] == "Admin") {
                                                 ?>
                                                 <?php
                                                 if ($_SESSION['level'] == "Admin") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-cuti&id=$data[idseminar]'> <i class='ti ti-zoom-check'></i></a>";
-                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=cuti-hapus&id=$data[idseminar]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-cuti&id=$data[idcuti]'> <i class='ti ti-zoom-check'></i></a>";
+                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=cuti-hapus&id=$data[idcuti]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
                                                 } else if ($_SESSION['level'] == "Pegawai") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=cuti-print-detail&id=$data[idseminar]' target='_blank'> <i class='ti ti-printer'></i> </a>";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=cuti-print-detail&id=$data[idcuti]' target='_blank'> <i class='ti ti-printer'></i> </a>";
                                                 }
                                                 ?>
                         

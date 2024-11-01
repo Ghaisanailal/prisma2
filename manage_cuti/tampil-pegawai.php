@@ -1,8 +1,8 @@
 <div class="panel-heading">
-        <h3 class="panel-title">Data pensiun</h3>
+        <h3 class="panel-title">Data Cuti</h3>
         <?php
       if ($_SESSION['level'] == "Pegawai") {
-        echo "<a class='btn btn-info' href='?page=pensiun-tambah'>
+        echo "<a class='btn btn-info' href='?page=cuti-tambah'>
       <i class='glyphicon glyphicon-plus'></i> Tambah </a>";
       } else if ($_SESSION['level'] == "Admin") {
         echo "Gak boleh masukin data";
@@ -26,7 +26,7 @@ if (isset($_POST['cari'])) {
 <br>
 <?php
 if ($_SESSION['level'] == "Admin") {
-    echo '<form class="form-inline" method="POST" action="?page=pensiun-tampil">
+    echo '<form class="form-inline" method="POST" action="?page=cuti-tampil">
             <input type="text" name="cari" class="form-control" placeholder="cari ..." required="required" value="' . htmlspecialchars($cari) . '">
           </form>';
 } else if ($_SESSION['level'] == "Pegawai") {
@@ -48,21 +48,21 @@ if ($_SESSION['level'] == "Admin") {
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data pensiun berhasil disimpan.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data pensiun berhasil diubah.
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data pensiun berhasil dihapus.
+            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data Cuti berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
@@ -101,7 +101,7 @@ if ($_SESSION['level'] == "Admin") {
                             $idu = $_SESSION['id'];
 
 
-                           $jumlah_record = mysqli_query($db, "SELECT pensiun.*, user.nama, user.jabatan, user.bidang FROM pensiun JOIN user ON user.nip = pensiun.nip WHERE  jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                           $jumlah_record = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan, user.bidang FROM cuti JOIN user ON user.nip = cuti.nip WHERE  jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
                             $halaman = ceil($jumlah / $batas);
@@ -110,7 +110,7 @@ if ($_SESSION['level'] == "Admin") {
                             /*-------------------------------------------------------------------*/
                             $no = 1;
 
-                            $query = mysqli_query($db, "SELECT pensiun.*,user.nama, user.jabatan,  user.bidang FROM pensiun,user WHERE  user.nip = pensiun.nip AND pensiun.nip = $idu LIMIT $mulai, $batas") or die('Ada kesalahan pada query pensiun: ' . mysqli_error($db));
+                            $query = mysqli_query($db, "SELECT cuti.*,user.nama, user.jabatan,  user.bidang FROM cuti,user WHERE  user.nip = cuti.nip AND cuti.nip = $idu LIMIT $mulai, $batas") or die('Ada kesalahan pada query cuti: ' . mysqli_error($db));
 
                             while ($data = mysqli_fetch_assoc($query)) {
                             
@@ -126,7 +126,7 @@ if ($_SESSION['level'] == "Admin") {
                         <div class=''>
 
 
-                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=pensiun-detail&id=$data[idpensiun]'> <i class='ti ti-eye'></i> </a> 
+                         <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=cuti-detail&id=$data[idcuti]'> <i class='ti ti-eye'></i> </a> 
 
                         
 
@@ -137,10 +137,10 @@ if ($_SESSION['level'] == "Admin") {
                                                 ?>
                                                 <?php
                                                 if ($_SESSION['level'] == "Admin") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-pensiun&id=$data[idpensiun]'> <i class='ti ti-zoom-check'></i></a>";
-                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=pensiun-hapus&id=$data[idpensiun]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Akvitasi' style='margin-right:5px' class='btn btn-primary btn-sm' href='?page=aktivasi-cuti&id=$data[idcuti]'> <i class='ti ti-zoom-check'></i></a>";
+                                                    echo "<a data-toggle='tooltip' data-placement='top' title='Hapus' class='btn btn-danger btn-sm' href='?page=cuti-hapus&id=$data[idcuti]' onclick='return confirm('Anda yakin ingin menghapus $data[nama]');'> <i class='ti ti-trash'></i></a>&nbsp";
                                                 } else if ($_SESSION['level'] == "Pegawai") {
-                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=pensiun-print-detail&id=$data[idpensiun]' target='_blank'> <i class='ti ti-printer'></i> </a>";
+                                                    echo " <a data-toggle='tooltip' data-placement='top' title='Print' style='margin-right:5px' class='btn btn-warning btn-sm' href='?page=cuti-print-detail&id=$data[idcuti]' target='_blank'> <i class='ti ti-printer'></i> </a>";
                                                 }
                                                 ?>
                         
@@ -184,7 +184,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_pensiun-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
@@ -195,7 +195,7 @@ if ($_SESSION['level'] == "Admin") {
                             <!-- Link halaman 1 2 3 ... -->
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
-                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_pensiun-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
+                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_cuti-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
                                     
                                 
                             <?php
@@ -213,7 +213,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_pensiun-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>

@@ -46,7 +46,7 @@ if (empty($_GET["page"])) {
 // manage pensiun
 
  elseif ($_GET['page'] == 'pensiun-tampil') {
-    include "manage_pensiun/tampil.php";
+    include "manage_pensiun/tampil-admin.php";
 } elseif ($_GET['page'] == 'pensiun-detail') {
     include "manage_pensiun/detail.php";
 } elseif ($_GET['page'] == 'pensiun-print-detail') {
@@ -65,7 +65,7 @@ if (empty($_GET["page"])) {
 // manage kenaikan pangkat
 
 elseif ($_GET['page'] == 'kp-tampil') {
-    include "manage_kp/tampil.php";
+    include "manage_kp/tampil-admin.php";
 } elseif ($_GET['page'] == 'kp-detail') {
     include "manage_kp/detail.php";
 } elseif ($_GET['page'] == 'kp-print-detail') {
@@ -85,22 +85,9 @@ elseif ($_GET['page'] == 'users-edit') {
     include "users/edit.php";
 }
    
-    // Users
-  elseif ($_GET['page'] == 'users-tampil') {
-    include "users/tampil.php";
-} elseif ($_GET['page'] == 'users-detail') {
-    include "users/detail.php";
-} elseif ($_GET['page'] == 'aktivasi-users') {
-    include "users/aktivasi-users.php";
-} elseif ($_GET['page'] == 'aktivasi') {
-    include "users/aktivasi.php";
-} elseif ($_GET['page'] == 'users-hapus') {
-    include "users/hapus.php";
-} elseif ($_GET['page'] == 'users-print-detail') {
-    include "users/print-detail.php";
 
     // Seminar
-} elseif ($_GET['page'] == 'seminar-tampil') {
+  elseif ($_GET['page'] == 'seminar-tampil') {
     include "seminar/tampil.php";
 } elseif ($_GET['page'] == 'seminar-detail') {
     include "manage_cuti/detail.php";
@@ -116,19 +103,3 @@ elseif ($_GET['page'] == 'users-edit') {
     include "seminar/tampil-nilai.php";
 }
 
-  // User
-  elseif ($_GET['page'] == 'user-tampil') {
-    include "user/tampil-data.php";
-} elseif ($_GET['page'] == 'tambah') {
-    include "user/form-tambah.php";
-} elseif ($_GET['page'] == 'proses-simpan') {
-    include "user/proses-simpan.php";
-} elseif ($_GET['page'] == 'ubah') {
-    include "user/form-ubah.php";
-} elseif ($_GET['page'] == 'proses-ubah') {
-    include "user/proses-ubah.php";
-} elseif ($_GET['page'] == 'detail') {
-    include "user/detail.php";
-} elseif ($_GET['page'] == 'proses-hapus') {
-    include "user/proses-hapus.php";
-}
