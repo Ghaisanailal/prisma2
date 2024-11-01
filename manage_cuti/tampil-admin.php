@@ -33,6 +33,7 @@ if ($_SESSION['level'] == "Admin") {
     // Tidak ada output untuk Pegawai
 }
 ?>
+
         <?php
         if (empty($_GET['alert'])) {
             echo "";
@@ -92,16 +93,15 @@ if ($_SESSION['level'] == "Admin") {
                         </thead>
 
                         <tbody>
-
-                        
                             <?php
-
                             /* Pagination */
                             $batas = 10;
-                            $idu = $_SESSION['id'];
 
-
-                           $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE  jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            if (isset($cari)) {
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            } else {
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang  FROM seminar JOIN user ON user.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                            }
 
                             $jumlah  = mysqli_num_rows($jumlah_record);
                             $halaman = ceil($jumlah / $batas);
@@ -109,11 +109,14 @@ if ($_SESSION['level'] == "Admin") {
                             $mulai   = ($page - 1) * $batas;
                             /*-------------------------------------------------------------------*/
                             $no = 1;
-
-                            $query = mysqli_query($db, "SELECT seminar.*,user.nama, user.jabatan,  user.bidang FROM seminar,user WHERE  user.nip = seminar.nip AND seminar.nip = $idu LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                            if (isset($cari)) {
+                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
+                                    or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                            } else {
+                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                            }
 
                             while ($data = mysqli_fetch_assoc($query)) {
-                            
 
                                 echo "  <tr>
                       <td width='20'>$no</td>

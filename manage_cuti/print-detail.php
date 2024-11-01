@@ -12,7 +12,6 @@
                 $idseminar        = $data['idseminar'];
                 $nama             = $data['nama'];
                 $nip              = $data['nip'];
-                $tautan           = $data['tautan'];
                 $file             = $data['file'];
                 $status           = $data['status'];
                 $ket              = $data['ket'];
@@ -26,7 +25,6 @@
             <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN CUTI</b></li>
             <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idseminar; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
-            <li class="list-group-item"><b>Tautan : </b><a href="https:<?php echo $tautan; ?>" target="_blank"><?php echo $tautan; ?></a></li>
             <li class="list-group-item"><b>File : </b><a href="seminar/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
             <li class="list-group-item"><b>Status : <?php echo $status; ?></b> (<?php echo $ket; ?>)</li>
 

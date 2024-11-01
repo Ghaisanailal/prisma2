@@ -6,7 +6,7 @@
               <li class="sidebar-item">
               <a class="sidebar-link" href="?page=pegawai-tampil" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-file-database"></i>
                 </span>
                 <span class="hide-menu">Lihat Data Pegawai</span>
               </a>
@@ -14,7 +14,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="?page=cuti-tampil" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-calendar-time"></i>
                 </span>
                 <span class="hide-menu">Pengusulan Cuti</span>
               </a>
@@ -22,7 +22,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="?page=pensiun-tampil" aria-expanded="false">
                 <span>
-                  <i class="ti ti-cards"></i>
+                  <i class="ti ti-briefcase"></i>
                 </span>
                 <span class="hide-menu">Pengajuan Pensiun</span>
               </a>
@@ -30,7 +30,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="?page=kp-tampil" aria-expanded="false">
                 <span>
-                  <i class="ti ti-file-description"></i>
+                  <i class="ti ti-graph"></i>
                 </span>
                 <span class="hide-menu">Pengajuan Kenaikan Pangkat</span>
               </a>
