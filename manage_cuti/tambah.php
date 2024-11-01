@@ -32,14 +32,10 @@
                    
                     </div>
 
-                    <input type="hidden" class="form-control" name="statussem" value="Menunggu Persetujuan">
+                    <input type="hidden" class="form-control" name="status" value="Menunggu Persetujuan">
                     <input type="hidden" class="form-control" name="ket" value="">
-                    <input type="hidden" class="form-control" name="pengujilap" value="">
-                    <input type="hidden" class="form-control" name="pengujiapl" value="">
-                    <input type="hidden" class="form-control" name="nilaiprakerin" value="">
-                    <input type="hidden" class="form-control" name="nilailaporan" value="">
-                    <input type="hidden" class="form-control" name="nilaiaplikasi" value="">
-
+                   
+                    
                     <hr />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

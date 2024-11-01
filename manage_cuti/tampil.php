@@ -89,9 +89,11 @@ if (isset($_POST['cari'])) {
                             <?php
                             /* Pagination */
                             $batas = 10;
+                            $idu = $_SESSION['idseminar'];
+                        
 
                             if (isset($cari)) {
-                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+                                $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE  jabatan LIKE '%$cari%' OR nama LIKE '%$cari%'") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             } else {
                                 $jumlah_record = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
                             }
@@ -106,7 +108,7 @@ if (isset($_POST['cari'])) {
                                 $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan, user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE jabatan LIKE '%$cari%' OR nama LIKE '%$cari%' ORDER BY nip LIMIT $mulai, $batas")
                                     or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             } else {
-                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan,  user.bidang FROM seminar JOIN user ON user.nip = seminar.nip ORDER BY nip LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
+                                $query = mysqli_query($db, "SELECT seminar.*, user.nama, user.jabatan,  user.bidang FROM seminar JOIN user ON user.nip = seminar.nip WHERE user.idseminar = $idu LIMIT $mulai, $batas") or die('Ada kesalahan pada query seminar: ' . mysqli_error($db));
                             }
 
                             while ($data = mysqli_fetch_assoc($query)) {
