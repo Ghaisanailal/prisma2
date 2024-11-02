@@ -6,9 +6,8 @@
     <div class="col-md-12">
         <?php
         $ids = $_SESSION['id'];
-        $jumlah_record1 = mysqli_query($db, "SELECT * FROM user where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
-        $data = mysqli_fetch_assoc($jumlah_record1);
-        $nips = $data['nip'];
+
+        
         ?>
         <div class="panel panel-default">
             <div class="panel-body">
@@ -17,9 +16,16 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">NIP</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="nip" value="<?php echo $nips; ?>" readonly>
+                            <input type="text" class="form-control" name="nip" value="<?php echo $ids; ?>" readonly>
                         </div>
                     </div>
+
+                    <div class="form-group">
+    <label class="col-sm-2 control-label">Tanggal</label>
+    <div class="col-sm-3">
+        <input type="date" class="form-control" name="tanggal" value="" required>
+    </div>
+</div>
 
 
                     <div class="form-group">
@@ -41,7 +47,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" name="" value="Simpan" class="btn btn-primary">
                 </form>
-                <a href="index.php" class="btn btn-default btn-reset">Batal</a>
+                <a href="index.php" class="btn btn-outline-primary m-1">Batal</a>
             </div>
         </div>
         </form>

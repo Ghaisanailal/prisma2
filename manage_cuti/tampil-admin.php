@@ -187,7 +187,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
+                                    <a href="?page=cuti-tampil&hal=<?php echo $page - 1 ?>" aria-label="Previous">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-left"></i></button>
                                     </a>
                                 </li>
@@ -198,7 +198,7 @@ if ($_SESSION['level'] == "Admin") {
                             <!-- Link halaman 1 2 3 ... -->
                             <?php
                             for ($x = 1; $x <= $halaman; $x++) { ?>
-                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=manage_cuti-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
+                                 <button type="button" class="btn btn-outline-primary m-1"><a href="?page=cuti-tampil&hal=<?php echo $x ?>"><?php echo $x ?></a></button>
                                     
                                 
                             <?php
@@ -216,7 +216,7 @@ if ($_SESSION['level'] == "Admin") {
                             <?php
                             } else { ?>
                                 <li>
-                                    <a href="?page=manage_cuti-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
+                                    <a href="?page=cuti-tampil&hal=<?php echo $page + 1 ?>" aria-label="Next">
                                     <button type="button" class="btn btn-outline-primary m-1"><i class="ti ti-caret-right"></i></button>
                                     </a>
                                 </li>

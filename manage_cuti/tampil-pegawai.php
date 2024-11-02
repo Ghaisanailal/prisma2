@@ -45,10 +45,8 @@ if ($_SESSION['level'] == "Admin") {
           </div>";
         } elseif ($_GET['alert'] == 2) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil disimpan.
+           
+            <strong> Sukses!</strong> Data Cuti berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>

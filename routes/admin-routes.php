@@ -27,7 +27,7 @@ if (empty($_GET["page"])) {
 
     // manage cuti
 
-} elseif ($_GET['page'] == 'cuti-tampil-admin') {
+} elseif ($_GET['page'] == 'cuti-tampil') {
     include "manage_cuti/tampil-admin.php";
 } elseif ($_GET['page'] == 'cuti-detail') {
     include "manage_cuti/detail.php";

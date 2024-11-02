@@ -21,7 +21,7 @@ include "isi-dashboard-admin.php";
     </div>
 
 
-    <div class="col-md-2">
+    <div class="col-md-4">
         <div class="list-group">
             <li class="list-group-item list-group-item-info" align=" center">
                 <H1><b><?php echo $jum_cuti; ?></b></H1>

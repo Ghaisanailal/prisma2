@@ -101,7 +101,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" name="" value="Simpan" class="btn btn-primary">
                 </form>
-                <a href="?page=pegawai-tampil" class="btn btn-default btn-reset">Batal</a>
+                <a href="?page=pegawai-tampil" class="btn btn-outline-primary m-1">Batal</a>
             </div>
         </div>
         </form>

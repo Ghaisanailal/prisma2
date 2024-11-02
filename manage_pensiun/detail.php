@@ -30,9 +30,9 @@
 
         </ul>
         
-
+        <br>
         <div class="form-group">
-            <a href="?page=<?php echo $kembali ?>" class="btn btn-default btn-reset">Kembali</a>
+            <a href="?page=pensiun-tampil" class="btn btn-primary m-1">Kembali</a>
         </div>
 
     </div>

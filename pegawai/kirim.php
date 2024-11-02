@@ -27,16 +27,16 @@
         <div class="form-group">
             <center>
 
-                <a href="https://api.whatsapp.com/send?phone=6289508722030&text=<?php echo "*DETAIL DATA PEGAWAI*" .  "%0ANIS : " . $nip . "%0ANama Pegawai : " . $nama . "%0AJabatan : " . $jabatan . "%0ABidang : " . $bidang . "%0ANo. Telp : " . $telp . "%0AEmail : " . $email . "%0AFoto : " . $foto; ?>" class=" btn btn-default" target="_blank"><i class="glyphicon glyphicon-share"></i> Admin </a>
+                <a href="https://api.whatsapp.com/send?phone=6285724091969&text=<?php echo "*DETAIL DATA PEGAWAI*" .  "%0ANIS : " . $nip . "%0ANama Pegawai : " . $nama . "%0AJabatan : " . $jabatan . "%0ABidang : " . $bidang . "%0ANo. Telp : " . $telp . "%0AEmail : " . $email . "%0AFoto : " . $foto; ?>" class=" btn btn-primary m-1" target="_blank"><i class="glyphicon glyphicon-share"></i> Admin </a>
 
-                <a href="https://api.whatsapp.com/send?phone=<?php echo $telp; ?>&text=<?php echo "*DETAIL DATA PEGAWAI*" .  "%0ANIS : " . $nip . "%0ANama Pegawai : " . $nama . "%0AJabatan : " . $jabatan . "%0ABidang : " . $bidang . "%0ANo. Telp : " . $telp . "%0AEmail : " . $email . "%0AFoto : " . $foto; ?>" class=" btn btn-default" target="_blank"><i class="glyphicon glyphicon-share"></i> <?php echo $nama; ?> </a>
+                <a href="https://api.whatsapp.com/send?phone=<?php echo $telp; ?>&text=<?php echo "*DETAIL DATA PEGAWAI*" .  "%0ANIS : " . $nip . "%0ANama Pegawai : " . $nama . "%0AJabatan : " . $jabatan . "%0ABidang : " . $bidang . "%0ANo. Telp : " . $telp . "%0AEmail : " . $email . "%0AFoto : " . $foto; ?>" class=" btn btn-primary m-1" target="_blank"><i class="glyphicon glyphicon-share"></i> <?php echo $nama; ?> </a>
 
             </center>
         </div>
 
         <div class="form-group">
             <center>
-                <a href="?page=pegawai-tampil" class="btn btn-default">Kembali</a>
+                <a href="?page=pegawai-tampil" class="btn btn-primary m-1">Kembali</a>
             </center>
         </div>
 

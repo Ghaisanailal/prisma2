@@ -12,7 +12,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="?page=cuti-tampil-admin" aria-expanded="false">
+              <a class="sidebar-link" href="?page=cuti-tampil" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar-time"></i>
                 </span>

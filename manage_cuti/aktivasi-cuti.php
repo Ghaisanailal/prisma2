@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
         $nama             = $data['nama'];
         $jabatan          = $data['jabatan'];
         $nip              = $data['nip'];
-        $tautan           = $data['tautan'];
         $file             = $data['file'];
         $status           = $data['status'];
         $ket              = $data['ket'];
@@ -48,16 +47,15 @@ if (isset($_GET['id'])) {
                     <input type="text" class="form-control" name="ket" value="<?php echo $ket; ?>">
                 </div>
             </div>
-
-            
+<br>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" class="btn btn-info btn-submit" name="update" value="Update">
-                </div>
-            </div>
-        </form>
-        <a href="?page=cuti-tampil" class="btn btn-default btn-reset">Kembali</a>
-
+    <div class="col-sm-offset-2 col-sm-10">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <input type="submit" class="btn btn-primary m-1" name="update" value="Update">
+            <a href="?page=kp-tampil" class="btn btn-outline-primary m-1">Kembali</a>
+        </div>
+    </div>
+</div>
         <hr>
     </div>
 </div>
