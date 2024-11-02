@@ -35,8 +35,8 @@
                         <label class="col-sm-2 control-label">Level</label>
                         <div class="col-sm-3">
                             <select class="form-control" name="level" placeholder="Pilih level" required>
-                                <option value="Pembimbing">Admin</option>
-                                <option value="Pembimbing">Pegawai</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Pegawai">Pegawai</option>
                            
                                 
                             </select>
@@ -46,10 +46,10 @@
                         <label class="col-sm-2 control-label">Jabatan</label>
                         <div class="col-sm-3">
                             <select class="form-control" name="jabatan" placeholder="Pilih Jabatan" required>
-                                <option value="Pembimbing">Kepala Kantor</option>
-                                <option value="Pembimbing">KASI</option>
-                                <option value="Pembimbing">KASUBAG</option>
-                                <option value="Pembimbing">STAF</option>
+                                <option value="Kepala Kantor">Kepala Kantor</option>
+                                <option value="KASI">KASI</option>
+                                <option value="KASUBAG">KASUBAG</option>
+                                <option value="STAF">STAF</option>
                             </select>
                         </div>
                     </div>
