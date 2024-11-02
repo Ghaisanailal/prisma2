@@ -12,9 +12,9 @@ if (isset($_GET['id'])) {
     // cek hasil query
     if ($query) {
         // jika berhasil tampilkan pesan berhasil delete data
-        header('location:?page=cuti-tampil-admin&alert=4');
+        header('location:?page=cuti-tampil&alert=4');
     } else {
         // jika gagal tampilkan pesan kesalahan
-        header('location:?page=cuti-tampil-admin&alert=1');
+        header('location:?page=cuti-tampil&alert=1');
     }
 }

@@ -38,9 +38,7 @@ if ($_SESSION['level'] == "Admin") {
             echo "";
         } elseif ($_GET['alert'] == 1) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+           
             <strong><i class='glyphicon glyphicon-alert'></i> Gagal!</strong> Terjadi kesalahan.
           </div>";
         } elseif ($_GET['alert'] == 2) {
@@ -50,23 +48,17 @@ if ($_SESSION['level'] == "Admin") {
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+            
             <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+            
             <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data Cuti berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+            
             <strong><i class='glyphicon glyphicon-ok-circle'></i> Sorry!</strong> tipe file yg anda kirim harus pdf.
           </div>";
         }
@@ -84,6 +76,7 @@ if ($_SESSION['level'] == "Admin") {
                                 <th>Nama</th>
                                 <th>Jabatan</th>
                                 <th>Bidang</th>
+                                <th>Tanggal</th>
                                 <th>Status</th>
                                 <th class='center'>Aksi</th>
                             </tr>
@@ -114,15 +107,15 @@ if ($_SESSION['level'] == "Admin") {
                             
 
                                 echo "  <tr>
-                      <td width='20'>$no</td>
-                      <td width='100'>$data[nip]</td>
+                      <td width='15'>$no</td>
+                      <td width='15'>$data[nip]</td>
                       <td width='75'>$data[nama]</td>
-                      <td width='150'>$data[jabatan]</td>
+                      <td width='50'>$data[jabatan]</td>
                       <td width='50'>$data[bidang]</td>
+                      <td width='50'>$data[tanggal]</td>
                       <td width='50'>$data[status]</td>
                       <td width='100' class='center'>
                         <div class=''>
-
 
                          <a data-toggle='tooltip' data-placement='top' title='Detail' style='margin-right:5px' class='btn btn-success btn-sm' href='?page=cuti-detail&id=$data[idcuti]'> <i class='ti ti-eye'></i> </a> 
 

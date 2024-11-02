@@ -34,42 +34,32 @@ if ($_SESSION['level'] == "Admin") {
 }
 ?>
 
-        <?php
+         <?php
         if (empty($_GET['alert'])) {
             echo "";
         } elseif ($_GET['alert'] == 1) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+            
             <strong><i class='glyphicon glyphicon-alert'></i> Gagal!</strong> Terjadi kesalahan.
           </div>";
         } elseif ($_GET['alert'] == 2) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data pensiun berhasil disimpan.
+            
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil disimpan.
           </div>";
         } elseif ($_GET['alert'] == 3) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data pensiun berhasil diubah.
+            
+            <strong><i class='glyphicon glyphicon-ok-circle'></i> Sukses!</strong> Data Cuti berhasil diubah.
           </div>";
         } elseif ($_GET['alert'] == 4) {
             echo "<div class='alert alert-success alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data pensiun berhasil dihapus.
+            
+            <strong><i class='ti ti-square-rounded-check'></i> Sukses!</strong> Data Cuti berhasil dihapus.
           </div>";
         } elseif ($_GET['alert'] == 5) {
             echo "<div class='alert alert-danger alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
-            </button>
+           
             <strong><i class='glyphicon glyphicon-ok-circle'></i> Sorry!</strong> tipe file yg anda kirim harus pdf.
           </div>";
         }

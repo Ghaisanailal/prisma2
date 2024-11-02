@@ -47,6 +47,13 @@ if (isset($_GET['id'])) {
                     <input type="text" class="form-control" name="ket" value="<?php echo $ket; ?>">
                 </div>
             </div>
+            
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Dokumen Surat Keterangan</label>
+                        <div class="col-sm-3">
+                            <input type="file" class="form-control" name="file" required>
+                        </div>
+                    </div>
 <br>
             <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

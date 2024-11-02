@@ -13,6 +13,7 @@
                 $nama             = $data['nama'];
                 $nip              = $data['nip'];
                 $file             = $data['file'];
+                $tanggal          = $data['tanggal'];
                 $status           = $data['status'];
                 $ket              = $data['ket'];
                 
@@ -26,6 +27,7 @@
             <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idcuti; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
             <li class="list-group-item"><b>File : </b><a href="cuti/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
+            <li class="list-group-item"><b>Tanggal : </b><?php echo $tanggal; ?></li>
             <li class="list-group-item"><b>Status : <?php echo $status; ?></b> (<?php echo $ket; ?>)</li>
 
         </ul>

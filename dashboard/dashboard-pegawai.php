@@ -2,7 +2,7 @@
 <?php
 include "isi-dashboard-pegawai.php";
 ?>
-<h4><?php echo $ucapan . ", " . $namas ?></h4>
+<h4><?php echo $ucapan . ", " . $nama ?></h4>
 <hr>
 <div class="row">
     <div class="col-md-12">
