@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dokumen Persyaratan Cuti</label>
                         <div class="col-sm-3">
-                            <input type="file" class="form-control" name="file" required>
+                            <input type="file" class="form-control" name="file" value="<?php echo $file; ?>" required>
                         </div>
                     </div>
 

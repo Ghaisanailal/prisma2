@@ -8,6 +8,7 @@ if (isset($_GET['id'])) {
         $jabatan          = $data['jabatan'];
         $nip              = $data['nip'];
         $file             = $data['file'];
+        $sk               = $data['sk'];
         $status           = $data['status'];
         $ket              = $data['ket'];
         
@@ -51,7 +52,7 @@ if (isset($_GET['id'])) {
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dokumen Surat Keterangan</label>
                         <div class="col-sm-3">
-                            <input type="file" class="form-control" name="file" required>
+                            <input type="file" class="form-control" name="file" value="<?php echo $sk; ?>"required>
                         </div>
                     </div>
 <br>

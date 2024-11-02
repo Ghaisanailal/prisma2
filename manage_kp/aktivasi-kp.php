@@ -8,6 +8,7 @@ if (isset($_GET['id'])) {
         $jabatan          = $data['jabatan'];
         $nip              = $data['nip'];
         $file             = $data['file'];
+        $sk               = $data['sk'];
         $status           = $data['status'];
         $ket              = $data['ket'];
         
@@ -18,7 +19,7 @@ if (isset($_GET['id'])) {
 <div class="row">
     <div class="col-md-12">
         <br>
-        <form class="form-horizontal" method="POST" action="?page=aktivasi-k" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="?page=aktivasi-ct" enctype="multipart/form-data">
 
             <input type="hidden" class="form-control" name="idkp" value="<?php echo $idkp; ?>">
 
@@ -47,6 +48,13 @@ if (isset($_GET['id'])) {
                     <input type="text" class="form-control" name="ket" value="<?php echo $ket; ?>">
                 </div>
             </div>
+            
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Dokumen Surat Keterangan</label>
+                        <div class="col-sm-3">
+                            <input type="file" class="form-control" name="file" value="<?php echo $sk; ?>"required>
+                        </div>
+                    </div>
 <br>
             <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -56,7 +64,6 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
-
         <hr>
     </div>
 </div>

@@ -1,61 +1,53 @@
 <br>
 <center>
-    <p><label>Formulir Pendaftaran Seminar</label>
+    <p><label>Formulir Pengusulan Kenaikan Pangkat</label>
 </center>
 <div class=" row">
     <div class="col-md-12">
         <?php
         $ids = $_SESSION['id'];
-        $jumlah_record1 = mysqli_query($db, "SELECT * FROM user where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
-        $data = mysqli_fetch_assoc($jumlah_record1);
-        $niss = $data['nis'];
+
+        
         ?>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form class="form-horizontal" action="?page=seminar-simpan" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="?page=kp-simpan" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">NIS</label>
+                        <label class="col-sm-2 control-label">NIP</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="nis" value="<?php echo $niss; ?>" readonly>
+                            <input type="text" class="form-control" name="nip" value="<?php echo $ids; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Judul Seminar</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" name="judul" value="" required>
-                        </div>
-                    </div>
+    <label class="col-sm-2 control-label">Tanggal</label>
+    <div class="col-sm-3">
+        <input type="date" class="form-control" name="tanggal" value="" required>
+    </div>
+</div>
+
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">File Seminar</label>
+                        <label class="col-sm-2 control-label">Dokumen Persyaratan Kenaikan Pangkat</label>
                         <div class="col-sm-3">
-                            <input type="file" class="form-control" name="file" required>
+                            <input type="file" class="form-control" name="file" value="<?php echo $file; ?>" required>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Tautan Aplikasi</label>
-                        <div class="col-sm-3">
-                            <input type="link" class="form-control" name="tautan" placeholder="ex: github.com/AhmadMauludin/PWEB12" required>
-                        </div>
+                   
                     </div>
 
-                    <input type="hidden" class="form-control" name="statussem" value="Menunggu Persetujuan">
+                    <input type="hidden" class="form-control" name="status" value="Menunggu Persetujuan">
                     <input type="hidden" class="form-control" name="ket" value="">
-                    <input type="hidden" class="form-control" name="pengujilap" value="">
-                    <input type="hidden" class="form-control" name="pengujiapl" value="">
-                    <input type="hidden" class="form-control" name="nilaiprakerin" value="">
-                    <input type="hidden" class="form-control" name="nilailaporan" value="">
-                    <input type="hidden" class="form-control" name="nilaiaplikasi" value="">
-
+                   
+                    
                     <hr />
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" name="" value="Simpan" class="btn btn-primary">
                 </form>
-                <a href="index.php" class="btn btn-default btn-reset">Batal</a>
+                <a href="index.php" class="btn btn-outline-primary m-1">Batal</a>
             </div>
         </div>
         </form>
