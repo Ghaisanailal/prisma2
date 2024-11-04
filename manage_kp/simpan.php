@@ -1,26 +1,41 @@
 <?php
 include 'config/database.php';
 
-$nip             = $_POST['nip'];
-$file           = $_POST['file'];
-$tanggal           = $_POST['tanggal'];
-$status          = $_POST['status'];
-$ket             = $_POST['ket'];
+$nip      = $_POST['nip'];
+$tanggal  = $_POST['tanggal'];
+$status   = $_POST['status'];
+$ket      = $_POST['ket'];
 
 $rand = rand();
-$ekstensi =  array('pdf');
+$ekstensi = array('pdf');
 $filename = $_FILES['file']['name'];
 $ukuran = $_FILES['file']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
+// Cek ekstensi file
 if (!in_array($ext, $ekstensi)) {
     header("location:?page=kp-tampil&alert=1");
+    exit;
 } else {
+    // Cek ukuran file
     if ($ukuran < 10044070) {
         $xx = $rand . '_' . $filename;
-        move_uploaded_file($_FILES['file']['tmp_name'], 'seminar/files/' . $rand . '_' . $filename);
-        mysqli_query($db, "INSERT INTO kp VALUES('null','$nip','$xx','$tanggal','$status','$ket')");
-        header("location:?page=kp-tampil&alert=2");
+
+        // Pindahkan file yang diupload
+        if (move_uploaded_file($_FILES['file']['tmp_name'], 'kp/files/' . $xx)) {
+            // Persiapkan dan jalankan pernyataan SQL
+            $sql = "INSERT INTO kp (nip, file, tanggal, status, ket) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $db->prepare($sql);
+            $stmt->bind_param("sssss", $nip, $xx, $tanggal, $status, $ket);
+            
+            if ($stmt->execute()) {
+                header("location:?page=kp-tampil&alert=2");
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+        } else {
+            echo "File upload failed.";
+        }
     } else {
         header("location:?page=kp-tampil&alert=1");
     }

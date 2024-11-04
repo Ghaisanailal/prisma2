@@ -51,13 +51,17 @@ if (empty($_GET["page"])) {
 
 elseif ($_GET['page'] == 'pensiun-tampil') {
     include "manage_pensiun/tampil.php";
+} elseif ($_GET['page'] == 'pensiun-tambah') {
+    include "manage_pensiun/tambah.php";
+} elseif ($_GET['page'] == 'pensiun-simpan') {
+    include "manage_pensiun/simpan.php";
 } elseif ($_GET['page'] == 'pensiun-detail') {
     include "manage_pensiun/detail.php";
 } elseif ($_GET['page'] == 'pensiun-print-detail') {
     include "manage_pensiun/print-detail.php";
 } elseif ($_GET['page'] == 'aktivasi-pensiun') {
     include "manage_pensiun/aktivasi-pensiun.php";
-} elseif ($_GET['page'] == 'aktivasi-sem') {
+} elseif ($_GET['page'] == 'aktivasi-p') {
     include "manage_pensiun/aktivasi.php";
 } elseif ($_GET['page'] == 'pensiun-hapus') {
     include "manage_pensiun/hapus.php";
@@ -70,6 +74,10 @@ elseif ($_GET['page'] == 'pensiun-tampil') {
 
 elseif ($_GET['page'] == 'kp-tampil') {
     include "manage_kp/tampil.php";
+} elseif ($_GET['page'] == 'kp-tambah') {
+    include "manage_kp/tambah.php";
+} elseif ($_GET['page'] == 'kp-simpan') {
+    include "manage_kp/simpan.php";
 } elseif ($_GET['page'] == 'kp-detail') {
     include "manage_kp/detail.php";
 } elseif ($_GET['page'] == 'kp-print-detail') {
