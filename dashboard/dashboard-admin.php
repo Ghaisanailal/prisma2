@@ -1,12 +1,5 @@
 <style>
-      /* Latar belakang untuk seluruh baris */
-    .row {
 
-     /* Efek rounded pada baris */
-        background-image: url('assets/images/bg.png'); /* Tambahkan gambar latar belakang untuk baris */
-        background-size: cover;
-        background-position: center center;
-    }
     .custom-bg {
         background-color: #bacdf5; /* Ganti dengan warna yang Anda inginkan */
         color: white; /* Ganti warna teks jika perlu */
@@ -27,7 +20,7 @@ include "isi-dashboard-admin.php";
 
 <h4><?php echo $ucapan . ", " . $nama ?></h4>
 <hr>
- 
+ <div class="row">
 
     <div class="col-md-2">
         <div class="list-group bg-primary rounded-3 fw-semibold">

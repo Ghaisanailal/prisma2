@@ -3,7 +3,7 @@
         <?php
       if ($_SESSION['level'] == "Pegawai") {
         echo "<a class='btn btn-info' href='?page=kp-tambah'>
-      <i class='glyphicon glyphicon-plus'></i> Tambah </a>";
+      <i class='glyphicon glyphicon-plus'></i> Ajukan </a>";
       } else if ($_SESSION['level'] == "Admin") {
         echo "Gak boleh masukin data";
       }
