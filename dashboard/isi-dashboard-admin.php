@@ -19,6 +19,13 @@ $jum_cuti = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti"));
 $jum_cuti_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti where status = 'Disetujui'"));
 $jum_cuti_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti where status = 'Menunggu Persetujuan'"));
 
+$jum_pensiun = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun"));
+$jum_pensiun_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun where status = 'Disetujui'"));
+$jum_pensiun_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun where status = 'Menunggu Persetujuan'"));
+
+$jum_kp = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp"));
+$jum_kp_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp where status = 'Disetujui'"));
+$jum_kp_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp where status = 'Menunggu Persetujuan'"));
 
 $waktu = gmdate("H:i", time() + 7 * 3600);
 $t = explode(":", $waktu);
