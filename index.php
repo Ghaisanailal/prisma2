@@ -172,7 +172,8 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
             </div>
           </div>
  
-        <div class="py-6 px-6 text-center">
+        <div class="
+        py-6 px-6 text-center">
           <p class="mb-0 fs-4">by <a href="https://instagram.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">PrismaGrup</a></p>
         </div>
       </div>

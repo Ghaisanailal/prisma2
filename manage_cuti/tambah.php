@@ -15,14 +15,14 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">NIP</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-5">
                             <input type="text" class="form-control" name="nip" value="<?php echo $ids; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
     <label class="col-sm-2 control-label">Tanggal</label>
-    <div class="col-sm-3">
+    <div class="col-sm-5">
         <input type="date" class="form-control" name="tanggal" value="" required>
     </div>
 </div>
@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dokumen Persyaratan Cuti</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-5">
                             <input type="file" class="form-control" name="file" value="<?php echo $file; ?>" required>
                         </div>
                     </div>

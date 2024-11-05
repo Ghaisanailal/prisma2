@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Status Cuti</label>
-                <div class="col-sm-3">
+                <div class="col-sm-5">
                     <select class="form-control" name="status" placeholder="Pilih statusus">
                         <option value="<?php echo $status; ?>"><?php echo $status; ?></option>
                         <option value="Menunggu Persetujuan">Menunggu Persetujuan</option>
@@ -44,14 +44,14 @@ if (isset($_GET['id'])) {
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Keterangan</label>
-                <div class="col-sm-3">
+                <div class="col-sm-5">
                     <input type="text" class="form-control" name="ket" value="<?php echo $ket; ?>">
                 </div>
             </div>
             
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Dokumen Surat Keterangan</label>
-                        <div class="col-sm-3">
+                        <label class="col-sm-10 control-label">Dokumen Surat Keterangan</label>
+                        <div class="col-sm-5">
                             <input type="file" class="form-control" name="file" value="<?php echo $sk; ?>"required>
                         </div>
                     </div>

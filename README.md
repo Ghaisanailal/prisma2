@@ -14,3 +14,6 @@ cd examples/vite/
 npm install
 npm start
 ```
+
+<div class="card-body">
+    <img src="assets/images/2.svg" class="card-img-top" alt="...">

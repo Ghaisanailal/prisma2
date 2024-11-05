@@ -111,10 +111,10 @@ if (isset($_POST['cari'])) {
 
                                 echo "  <tr>
                       <td width='20'>$no</td>
-                      <td width='100'>$data[nip]</td>
+                      <td width='20'>$data[nip]</td>
                       <td width='150'>$data[nama]</td>
-                      <td width='150'>$data[jabatan]</td>
-                      <td width='150'>$data[bidang]</td>
+                      <td width='50'>$data[jabatan]</td>
+                      <td width='50'>$data[bidang]</td>
                       <td width='150' class='center'>
                         <div class=''>
 
