@@ -7,9 +7,9 @@
 
         if (isset($_GET['id'])) {
             $idpensiun  = $_GET['id'];
-            $query = mysqli_query($db, "SELECT cuti.*, user.nama, user.jabatan FROM pensiunJOIN user ON user.nip = cuti.nip WHERE idcuti='$idcuti'") or die('Query Error : ' . mysqli_error($db));
+            $query = mysqli_query($db, "SELECT pensiun.*, user.nama, user.jabatan FROM pensiun JOIN user ON user.nip = pensiun.nip WHERE idpensiun='$idpensiun'") or die('Query Error : ' . mysqli_error($db));
             while ($data  = mysqli_fetch_assoc($query)) {
-                $idpensiun       = $data['idcuti'];
+                $idpensiun       = $data['idpensiun'];
                 $nama             = $data['nama'];
                 $nip              = $data['nip'];
                 $file             = $data['file'];
@@ -22,8 +22,8 @@
         ?>
 
         <ul class="list-group">
-            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN CUTI</b></li>
-            <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idcuti; ?></li>
+            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN PENSIUN</b></li>
+            <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idpensiun; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
             <li class="list-group-item"><b>File : </b><a href="cuti/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>
             <li class="list-group-item"><b>Status : <?php echo $status; ?></b> (<?php echo $ket; ?>)</li>

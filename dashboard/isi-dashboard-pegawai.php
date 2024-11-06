@@ -1,9 +1,12 @@
 <?php
 include 'config/database.php';
+                            /* Pagination */
+                            $batas = 10;
+                            $idu = $_SESSION['id'];
 
-$ids = $_SESSION['id'];
+$idu = $_SESSION['id'];
 $levels = $_SESSION['level'];
-$jumlah_record1 = mysqli_query($db, "SELECT user.id, pegawai.* FROM user JOIN pegawai ON pegawai.nip = user.nip where id = $ids") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
+$jumlah_record1 = mysqli_query($db, "SELECT user.id, pegawai.* FROM user JOIN pegawai ON pegawai.nip = user.nip where id = $idu") or die('Ada kesalahan pada query jumlah_record: ' . mysqli_error($db));
 $data = mysqli_fetch_assoc($jumlah_record1);
 $nip = $data['nip'];
 $nama = $data['nama'];
@@ -11,18 +14,18 @@ $jabatan = $data['jabatan'];
 $bidang = $data['bidang'];
 
 // jumlah data
+
 $jum_cuti = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti"));
 $jum_cuti_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti where status = 'Disetujui' != '0'"));
-$jum_cuti_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM cuti where status = 'Menunggu Persetujuan' != '0'"));
+
 
 // jumlah data
 $jum_pensiun = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun"));
-$jum_pensiun_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun where status = 'Disetujui' != '0'"));
-$jum_pensiun_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun where status = 'Menunggu Persetujuan' != '0'"));
+$jum_pensiun_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM pensiun where status = 'Disetujui' != '0'")); 
+
 // jumlah data
 $jum_kp = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp"));
 $jum_kp_disetujui = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp where status = 'Disetujui' != '0'"));
-$jum_kp_belum = mysqli_num_rows(mysqli_query($db, "SELECT * FROM kp where status = 'Menunggu Persetujuan' != '0'"));
 
 $waktu = gmdate("H:i", time() + 7 * 3600);
 $t = explode(":", $waktu);

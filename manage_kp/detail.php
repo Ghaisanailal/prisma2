@@ -25,7 +25,7 @@
         ?>
 
         <ul class="list-group">
-            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN kp</b></li>
+            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN KENAIKAN PANGKAT</b></li>
             <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idkp; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
             <li class="list-group-item"><b>File : </b><a href="kp/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>

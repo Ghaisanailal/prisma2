@@ -61,7 +61,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
   // jika tidak ada level yang ditemukan pada sesi login, maka akan diarahkan ke halaman login.php dengan tambahan pesan gagal.
   // fitur ini digunakan agar yang belum login tidak dapat masuk ke dalam aplikasi.
   if ($_SESSION['level'] == "") {
-    header("location:login.php?pesan=gagal");
+    header("location:login.php");
   }
   ?>
 

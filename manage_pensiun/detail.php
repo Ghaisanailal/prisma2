@@ -25,7 +25,7 @@
         ?>
 
         <ul class="list-group">
-            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN pensiun</b></li>
+            <li class="list-group-item active"><b>DETAIL DATA PENGUSULAN PENSIUN</b></li>
             <li class="list-group-item"><b>Id Pegawai : </b><?php echo $idpensiun; ?></li>
             <li class="list-group-item"><b>Nama Pegawai : </b><?php echo $nama; ?></li>
             <li class="list-group-item"><b>File : </b><a href="pensiun/files/<?php echo $file; ?>" target="_blank"><?php echo $file; ?></a></li>

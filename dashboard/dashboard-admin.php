@@ -14,8 +14,9 @@
 <?php
 include "isi-dashboard-admin.php";
 ?>
-
-
+<div class="row">
+<img src="assets/images/welcome11.png" width="180" alt="">
+</div>
 
  
 <div class="row">
@@ -34,7 +35,7 @@ include "isi-dashboard-admin.php";
         </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="list-group">
             <li class="list-group-item custom-bg text-center">
                 <h1><b><?php echo $jum_cuti; ?></b></h1>
@@ -46,7 +47,7 @@ include "isi-dashboard-admin.php";
     </div>
 
     
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="list-group">
             <li class="list-group-item custom-bg text-center">
                 <h1><b><?php echo $jum_pensiun; ?></b></h1>
@@ -58,7 +59,7 @@ include "isi-dashboard-admin.php";
     </div>
 
     
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="list-group">
             <li class="list-group-item custom-bg text-center">
                 <h1><b><?php echo $jum_kp; ?></b></h1>
