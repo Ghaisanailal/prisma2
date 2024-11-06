@@ -11,6 +11,18 @@
       .position-relative {
         background: radial-gradient(circle, #7b8bc4, #f8cade); /* Ganti dengan warna pilihanmu */
       }
+
+      /* Mengubah warna tombol login */
+      .btn-primary {
+        background-color: #7b8bc4; /* Ganti dengan warna yang diinginkan */
+        border-color: #f8cade; /* Ganti dengan warna yang diinginkan */
+      }
+
+      /* Efek hover pada tombol login */
+      .btn-primary:hover {
+        background-color: #7b8bc4; /* Warna saat tombol di-hover */
+        border-color: #f8cade; /* Warna border saat tombol di-hover */
+      }
     </style>
   </head>
   <body>

@@ -47,7 +47,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" name="" value="Simpan" class="btn btn-primary">
                 </form>
-                <a href="index.php" class="btn btn-outline-primary m-1">Batal</a>
+                <a href="?page=kp-tampil" class="btn btn-outline-primary m-1">Batal</a>
             </div>
         </div>
         </form>
