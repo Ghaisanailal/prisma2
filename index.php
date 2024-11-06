@@ -140,11 +140,7 @@ require_once "config/database.php"; // Memanggil file koneksi dengan database
       <!--  Header End -->
       <div class="container-fluid">
         <!--  Row 1 -->
-        <div class="row">
-          
-            <img src="./assets/images/WELCOME.png" class="center" alt="...">
-            
-              <div class="card-body">
+       
               <?php
     if ($_SESSION['level'] == "Admin") {
       include 'routes/admin-routes.php'; // jika level pengguna yang login @Admin, maka akan dipanggil file admin-routes.php yang berada pada folder routes.

@@ -14,10 +14,11 @@
 <?php
 include "isi-dashboard-admin.php";
 ?>
+
+
+
+ 
 <div class="row">
-
-
-
 <h4><?php echo $ucapan . ", " . $nama ?></h4>
 <hr>
 
