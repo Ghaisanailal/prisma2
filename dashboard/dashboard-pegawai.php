@@ -43,7 +43,7 @@ include "isi-dashboard-pegawai.php";
         <div class="list-group">
             <li class="list-group-item list-group-item-info" align=" center"><b>STATUS KENAIKAN PANGKAT</b></li>
             <li class="list-group-item">
-                <b>Disetujui</b> <?php echo $idu. "," . $nama .","; ?> <b> <b><?php echo $jum_kp_disetujui; ?></b>sudah disetujui.
+                 <b>Disetujui</b> <?php echo $idu. "," . $nama .","; ?> <b><?php echo $jum_kp_disetujui; ?></b> sudah disetujui.
             </li>
         </div>
     </div>

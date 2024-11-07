@@ -1,1 +1,0 @@
-<a href='https://api.whatsapp.com/send?phone=6289502918001&text=<?php echo '*PERMOHONAN PERSETUJUAN SEMINAR*' . '%0ANama : ' . $nama . '%0AJudul : ' . $judul . '%0AFile : ' . $file . '%0ATautan Aplikasi: ' . $tautan . '%0AStatus : ' . $statussem; ?>' class=' btn btn-success' target='_blank'><i class='glyphicon glyphicon-share-alt'></i> Chat Admin </a>
